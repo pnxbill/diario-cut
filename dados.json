@@ -8,7 +8,7 @@
       "fim": "2026-09-07"
     },
     "peso_inicial_kg": 76.4,
-    "peso_meta_kg": 72.0,
+    "peso_meta_kg": 72,
     "alvos": {
       "kcal_dia_corrida": 2150,
       "kcal_dia_descanso": 1900,
@@ -16,7 +16,7 @@
       "fibra_g": 30,
       "agua_ml": 3000
     },
-    "atualizado_em": "2026-08-13T12:00:00.000Z",
+    "atualizado_em": "2026-08-13T22:54:48.027Z",
     "dias_registrados": 3
   },
   "peso": {
@@ -28,14 +28,10 @@
       {
         "data": "2026-08-12",
         "kg": 75.6
-      },
-      {
-        "data": "2026-08-13",
-        "kg": 75.6
       }
     ],
-    "media_movel_7d_kg": 75.87,
-    "variacao_desde_inicio_kg": -0.53
+    "media_movel_7d_kg": 76,
+    "variacao_desde_inicio_kg": -0.4
   },
   "dias": [
     {
@@ -53,7 +49,7 @@
               "nome": "3× Ovo",
               "kcal": 216,
               "proteina_g": 18.9,
-              "fibra_g": 0.0,
+              "fibra_g": 0,
               "emoji": "🥚",
               "id": "Ovo|1 un",
               "qtd": 3
@@ -62,7 +58,7 @@
               "nome": "Pão de forma (1 fatia)",
               "kcal": 68,
               "proteina_g": 2.3,
-              "fibra_g": 1.0,
+              "fibra_g": 1,
               "emoji": "🍞",
               "id": "Pão de forma|1 fatia",
               "qtd": 1
@@ -79,8 +75,8 @@
             {
               "nome": "Café preto",
               "kcal": 0,
-              "proteina_g": 0.0,
-              "fibra_g": 0.0,
+              "proteina_g": 0,
+              "fibra_g": 0,
               "emoji": "☕",
               "id": "Café preto|",
               "qtd": 1
@@ -99,7 +95,7 @@
             {
               "nome": "Carne moída c/ cebola (~110 g)",
               "kcal": 200,
-              "proteina_g": 30.0,
+              "proteina_g": 30,
               "fibra_g": 0.5,
               "emoji": "🥩",
               "id": "Carne moída c/ cebola|~110 g",
@@ -117,8 +113,8 @@
             {
               "nome": "Beterraba, brócolis, cenoura, batata",
               "kcal": 125,
-              "proteina_g": 5.0,
-              "fibra_g": 8.0,
+              "proteina_g": 5,
+              "fibra_g": 8,
               "emoji": "🥗",
               "id": "Legumes sortidos|1 porção",
               "qtd": 1
@@ -138,7 +134,7 @@
               "nome": "2× Ovo cozido",
               "kcal": 144,
               "proteina_g": 12.6,
-              "fibra_g": 0.0,
+              "fibra_g": 0,
               "emoji": "🥚",
               "id": "Ovo cozido|1 un",
               "qtd": 2
@@ -146,8 +142,8 @@
             {
               "nome": "Nutren Protein (260 ml)",
               "kcal": 114,
-              "proteina_g": 15.0,
-              "fibra_g": 0.0,
+              "proteina_g": 15,
+              "fibra_g": 0,
               "emoji": "🧋",
               "id": "Nutren Protein|1 garrafa 260 ml",
               "qtd": 1
@@ -156,7 +152,7 @@
           "subtotal": {
             "kcal": 258,
             "proteina_g": 27.6,
-            "fibra_g": 0.0
+            "fibra_g": 0
           }
         }
       ],
@@ -190,7 +186,7 @@
               "nome": "3× Ovo",
               "kcal": 216,
               "proteina_g": 18.9,
-              "fibra_g": 0.0,
+              "fibra_g": 0,
               "emoji": "🥚",
               "id": "Ovo|1 un",
               "qtd": 3
@@ -199,7 +195,7 @@
               "nome": "Pão de forma torrado (1 fatia)",
               "kcal": 68,
               "proteina_g": 2.3,
-              "fibra_g": 1.0,
+              "fibra_g": 1,
               "emoji": "🍞",
               "id": "Pão de forma torrado|1 fatia",
               "qtd": 1
@@ -208,7 +204,7 @@
               "nome": "Verde Campo Natural Whey (~170 g)",
               "kcal": 87,
               "proteina_g": 10.2,
-              "fibra_g": 0.0,
+              "fibra_g": 0,
               "emoji": "🥤",
               "id": "Verde Campo Natural Whey|~170 g",
               "qtd": 1
@@ -217,7 +213,7 @@
           "subtotal": {
             "kcal": 371,
             "proteina_g": 31.4,
-            "fibra_g": 1.0
+            "fibra_g": 1
           }
         },
         {
@@ -227,7 +223,7 @@
             {
               "nome": "Carne moída c/ cebola e batata (~180 g)",
               "kcal": 404,
-              "proteina_g": 50.0,
+              "proteina_g": 50,
               "fibra_g": 1.5,
               "emoji": "🥩",
               "id": "Carne moída c/ cebola e batata|~180 g",
@@ -245,7 +241,7 @@
             {
               "nome": "Beterraba, cenoura, mandioquinha, brócolis",
               "kcal": 150,
-              "proteina_g": 5.0,
+              "proteina_g": 5,
               "fibra_g": 9.4,
               "emoji": "🥗",
               "id": "Legumes sortidos|1 porção",
@@ -275,7 +271,7 @@
               "nome": "Verde Campo Natural Whey (restante ~330 g)",
               "kcal": 168,
               "proteina_g": 19.8,
-              "fibra_g": 0.0,
+              "fibra_g": 0,
               "emoji": "🥤",
               "id": "Verde Campo Natural Whey|~330 g",
               "qtd": 1
@@ -292,7 +288,7 @@
             {
               "nome": "Barra de cereal (22 g)",
               "kcal": 84,
-              "proteina_g": 1.0,
+              "proteina_g": 1,
               "fibra_g": 0.6,
               "emoji": "🍫",
               "id": "Barra de cereal|1 barra 22 g",
@@ -301,7 +297,7 @@
           ],
           "subtotal": {
             "kcal": 598,
-            "proteina_g": 29.0,
+            "proteina_g": 29,
             "fibra_g": 10.2
           }
         },
@@ -313,7 +309,7 @@
               "nome": "Sardinha em lata (lata inteira ~120 g)",
               "kcal": 156,
               "proteina_g": 19.4,
-              "fibra_g": 0.0,
+              "fibra_g": 0,
               "emoji": "🐟",
               "id": "Sardinha em lata|1 lata ~120 g",
               "qtd": 1
@@ -322,7 +318,7 @@
               "nome": "2× Pão de forma (1 fatia)",
               "kcal": 136,
               "proteina_g": 4.6,
-              "fibra_g": 2.0,
+              "fibra_g": 2,
               "emoji": "🍞",
               "id": "Pão de forma|1 fatia",
               "qtd": 2
@@ -331,7 +327,7 @@
               "nome": "2× Ovo cozido",
               "kcal": 144,
               "proteina_g": 12.6,
-              "fibra_g": 0.0,
+              "fibra_g": 0,
               "emoji": "🥚",
               "id": "Ovo cozido|1 un",
               "qtd": 2
@@ -340,14 +336,14 @@
           "subtotal": {
             "kcal": 436,
             "proteina_g": 36.6,
-            "fibra_g": 2.0
+            "fibra_g": 2
           }
         }
       ],
       "total": {
         "kcal": 2133,
         "proteina_g": 155.6,
-        "fibra_g": 25.0
+        "fibra_g": 25
       },
       "alvo": {
         "kcal": 2150,
@@ -361,110 +357,24 @@
     },
     {
       "data": "2026-08-13",
-      "tipo": "rest",
-      "peso_kg": 75.6,
-      "agua_ml": 500,
-      "atualizado_em": "2026-08-13T18:00:00.000Z",
-      "refeicoes": [
-        {
-          "refeicao": "cafe",
-          "label": "Café da manhã",
-          "itens": [
-            {
-              "nome": "3× Ovo",
-              "kcal": 216,
-              "proteina_g": 18.9,
-              "fibra_g": 0.0,
-              "emoji": "🥚",
-              "id": "Ovo|1 un",
-              "qtd": 3
-            },
-            {
-              "nome": "Pão de forma (1 fatia)",
-              "kcal": 68,
-              "proteina_g": 2.3,
-              "fibra_g": 1.0,
-              "emoji": "🍞",
-              "id": "Pão de forma|1 fatia",
-              "qtd": 1
-            },
-            {
-              "nome": "Mel (1 colher sopa)",
-              "kcal": 64,
-              "proteina_g": 0.1,
-              "fibra_g": 0.0,
-              "emoji": "🍯",
-              "id": "Mel|1 colher sopa (21 g)",
-              "qtd": 1
-            },
-            {
-              "nome": "Café preto",
-              "kcal": 0,
-              "proteina_g": 0.0,
-              "fibra_g": 0.0,
-              "emoji": "☕",
-              "id": "Café preto|",
-              "qtd": 1
-            }
-          ],
-          "subtotal": {
-            "kcal": 348,
-            "proteina_g": 21.3,
-            "fibra_g": 1.0
-          }
-        },
-        {
-          "refeicao": "almoco",
-          "label": "Almoço",
-          "itens": [
-            {
-              "nome": "Carne moída c/ repolho e cebola (~180 g)",
-              "kcal": 326,
-              "proteina_g": 49.0,
-              "fibra_g": 2.0,
-              "emoji": "🥩",
-              "id": "Carne moída c/ repolho e cebola|~180 g",
-              "qtd": 1
-            },
-            {
-              "nome": "Arroz branco (~3-4 colheres)",
-              "kcal": 195,
-              "proteina_g": 4.0,
-              "fibra_g": 1.0,
-              "emoji": "🍚",
-              "id": "Arroz branco|~3-4 colheres",
-              "qtd": 1
-            },
-            {
-              "nome": "Beterraba, cenoura, mandioquinha, brócolis",
-              "kcal": 168,
-              "proteina_g": 3.5,
-              "fibra_g": 6.0,
-              "emoji": "🥗",
-              "id": "Legumes sortidos|1 porção",
-              "qtd": 1
-            }
-          ],
-          "subtotal": {
-            "kcal": 689,
-            "proteina_g": 56.5,
-            "fibra_g": 9.0
-          }
-        }
-      ],
+      "tipo": "run",
+      "peso_kg": null,
+      "agua_ml": 0,
+      "atualizado_em": "2026-08-13T22:36:38.150Z",
+      "refeicoes": [],
       "total": {
-        "kcal": 1037,
-        "proteina_g": 77.8,
-        "fibra_g": 10.0
+        "kcal": 0,
+        "proteina_g": 0,
+        "fibra_g": 0
       },
       "alvo": {
-        "kcal": 1900,
+        "kcal": 2150,
         "proteina_g": 150,
         "fibra_g": 30
       },
       "diferenca": {
-        "kcal": -863,
-        "proteina_g": -72.2
+        "kcal": -2150,
+        "proteina_g": -150
       }
     }
   ]
