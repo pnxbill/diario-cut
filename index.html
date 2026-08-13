@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Diário do Cut</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#14453B">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Cut">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="icon" href="icon-192.png">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap');
+
+:root{
+  --paper:#EAEDE6;--card:#FFFFFF;--ink:#14181A;--muted:#6E766E;--line:#D4D9CF;
+  --pine:#14453B;--ochre:#B5811A;--alert:#9C3520;--ok:#3C7A4E;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{background:var(--paper);color:var(--ink);font-family:'IBM Plex Sans',system-ui,sans-serif;
+  font-size:15px;line-height:1.5;padding:0 0 90px}
+.num{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums}
+.wrap{max-width:640px;margin:0 auto;padding:0 14px}
+
+header{background:var(--pine);color:#F2F4EE;padding:calc(18px + env(safe-area-inset-top)) 0 20px;margin-bottom:14px}
+.brand{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;
+  letter-spacing:.18em;text-transform:uppercase;opacity:.72;display:flex;justify-content:space-between;gap:10px}
+.brand .sync{letter-spacing:.04em;font-family:'IBM Plex Mono',monospace;font-weight:400;
+  text-transform:none;font-size:11px;opacity:.85;text-align:right}
+.brand .sync.bad{color:#F0B8A8;opacity:1}
+.brand .sync.warn{color:#F0D9A8;opacity:1}
+.datebar{display:flex;align-items:center;gap:10px;margin-top:8px}
+.datebar h1{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:25px;
+  letter-spacing:-.02em;flex:1;line-height:1.15}
+.navbtn{background:rgba(255,255,255,.13);border:0;color:#F2F4EE;width:38px;height:38px;
+  border-radius:9px;font-size:17px;cursor:pointer;display:flex;align-items:center;
+  justify-content:center;flex:0 0 auto}
+.navbtn:active{background:rgba(255,255,255,.28)}
+.navbtn:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--ochre);outline-offset:2px}
+
+.rails{margin-top:16px;display:grid;gap:13px}
+.rail-head{display:flex;justify-content:space-between;align-items:baseline;font-size:11px;
+  letter-spacing:.13em;text-transform:uppercase;opacity:.72;margin-bottom:5px}
+.rail-head b{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0;opacity:1;font-weight:500}
+.track{height:9px;background:rgba(255,255,255,.16);border-radius:5px;position:relative;overflow:hidden}
+.fill{height:100%;border-radius:5px;transition:width .45s cubic-bezier(.4,0,.2,1);width:0}
+.fill.kcal{background:#E8EDE4}
+.fill.prot{background:var(--ochre)}
+.fill.fib{background:#7FA98C}
+.fill.wat{background:#6FB0C9}
+.fill.over{background:var(--alert)}
+.wbtns{display:grid;grid-template-columns:1.4fr 1fr .6fr;gap:6px;margin-top:8px}
+.wbtn{padding:9px 4px;border-radius:8px;border:1px solid rgba(255,255,255,.28);
+  background:rgba(255,255,255,.12);color:#F2F4EE;font-size:12.5px;font-weight:600;
+  cursor:pointer;font-family:'IBM Plex Sans',sans-serif}
+.wbtn:active{background:rgba(255,255,255,.3)}
+.wbtn.undo{font-size:14px}
+.ticks{position:absolute;inset:0;display:flex;pointer-events:none}
+.ticks i{flex:1;border-right:1px solid rgba(255,255,255,.22)}
+.ticks i:last-child{border:0}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:15px;margin-bottom:12px}
+.card h2{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.toggle{display:flex;gap:6px;margin-bottom:14px}
+.toggle button{flex:1;padding:9px;border:1px solid var(--line);background:transparent;
+  border-radius:9px;font-family:'IBM Plex Sans',sans-serif;font-size:13px;cursor:pointer;color:var(--muted)}
+.toggle button.on{background:var(--pine);color:#fff;border-color:var(--pine);font-weight:600}
+
+.slot{border:1px solid var(--line);border-radius:11px;margin-bottom:9px;overflow:hidden}
+.slot.active{border-color:var(--pine);box-shadow:0 0 0 1px var(--pine)}
+.slot-h{display:flex;align-items:center;gap:9px;padding:10px 12px;background:#F6F8F3;cursor:pointer}
+.slot.active .slot-h{background:var(--pine);color:#fff}
+.slot-h .e{font-size:16px}
+.slot-h .t{flex:1;font-size:13px;font-weight:600;letter-spacing:.02em}
+.slot-h .s{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--muted)}
+.slot.active .slot-h .s{color:rgba(255,255,255,.8)}
+.slot-b{padding:2px 12px 10px}
+.item{display:flex;align-items:center;gap:9px;padding:8px 0;border-bottom:1px dashed var(--line)}
+.item:last-child{border-bottom:0}
+.item .ie{font-size:15px;width:20px;text-align:center;flex:0 0 auto}
+.item .ib{flex:1;min-width:0}
+.item .inm{font-size:13.5px;word-break:break-word}
+.item .isb{font-size:11.5px;color:var(--muted);margin-top:1px}
+.item .isb .p{color:var(--ochre);font-weight:600}
+.del{background:none;border:0;color:var(--muted);font-size:18px;cursor:pointer;padding:3px 6px;line-height:1;flex:0 0 auto}
+.del:active{color:var(--alert)}
+.slot-e{color:var(--muted);font-size:12.5px;padding:9px 0 3px}
+.hintbar{font-size:12px;color:var(--muted);margin-bottom:11px;padding:8px 11px;
+  background:#F6F8F3;border-radius:9px;border:1px solid var(--line)}
+.hintbar b{color:var(--pine)}
+
+.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:14px}
+.chip{background:#F6F8F3;border:1px solid var(--line);border-radius:11px;padding:9px 4px 7px;
+  cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;
+  font-family:'IBM Plex Sans',sans-serif;color:var(--ink)}
+.chip:active{background:var(--pine);color:#fff;border-color:var(--pine)}
+.chip .e{font-size:21px;line-height:1}
+.chip .l{font-size:10.5px;font-weight:500;line-height:1.15;text-align:center}
+.chip .m{font-size:9.5px;color:var(--muted);font-family:'IBM Plex Mono',monospace}
+.chip:active .m{color:rgba(255,255,255,.75)}
+
+.searchrow{display:flex;gap:7px;margin-bottom:11px}
+input[type=text],input[type=number],input[type=search],input[type=password],select{width:100%;padding:11px 12px;
+  border:1px solid var(--line);border-radius:9px;font-family:'IBM Plex Sans',sans-serif;
+  font-size:16px;background:#FCFDFB;color:var(--ink)}
+.lib{max-height:340px;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.lib:empty{display:none}
+.libgroup{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding:11px 0 5px;font-weight:600}
+.libitem{display:flex;align-items:center;gap:9px;padding:9px 0;border-bottom:1px solid var(--line)}
+.libitem .ic{font-size:17px;width:22px;text-align:center;flex:0 0 auto}
+.libitem .n{flex:1;font-size:13.5px;min-width:0}
+.libitem .n em{display:block;font-style:normal;color:var(--muted);font-size:11.5px;margin-top:1px}
+.qty{width:54px;padding:7px 5px;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:15px;flex:0 0 auto}
+.add{background:var(--pine);color:#fff;border:0;border-radius:8px;padding:8px 13px;
+  font-size:13px;font-weight:600;cursor:pointer;flex:0 0 auto}
+.add:active{opacity:.75}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:9px}
+.wide{width:100%;padding:12px;border-radius:9px;border:0;background:var(--pine);color:#fff;
+  font-size:14px;font-weight:600;cursor:pointer;font-family:'IBM Plex Sans',sans-serif}
+.wide.ghost{background:transparent;color:var(--pine);border:1px solid var(--pine)}
+.wide+.wide{margin-top:8px}
+
+.wrow{display:flex;gap:9px;align-items:center;margin-bottom:14px}
+.wrow input{flex:1}
+
+.stats{display:flex;gap:22px;margin-bottom:12px}
+.stat .k{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.stat .v{font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:500;margin-top:2px}
+.stat .v small{font-size:12px;color:var(--muted);font-weight:400}
+svg.spark{width:100%;height:74px;display:block}
+.note{font-size:12.5px;color:var(--muted);margin-top:10px;line-height:1.45}
+.lbl{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+  margin:10px 0 4px;font-weight:600}
+.sumline{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--muted);
+  text-align:center;padding:4px 0 10px}
+.sumline.bad{color:var(--alert)}
+details.cfg summary{cursor:pointer;font-family:'Space Grotesk',sans-serif;font-size:11px;
+  font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:22px;z-index:50;
+  background:var(--ink);color:#fff;padding:11px 18px;border-radius:10px;font-size:13.5px;
+  opacity:0;transition:opacity .25s;pointer-events:none;max-width:88vw;text-align:center}
+.toast.show{opacity:1}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand"><span id="brandTxt">Diário do Cut</span><span class="sync" id="syncTxt">—</span></div>
+    <div class="datebar">
+      <button class="navbtn" id="prev" aria-label="Dia anterior">‹</button>
+      <h1 id="dayLabel">—</h1>
+      <button class="navbtn" id="next" aria-label="Próximo dia">›</button>
+    </div>
+    <div class="rails">
+      <div>
+        <div class="rail-head"><span>Calorias</span><b id="kcalTxt">0 / 0</b></div>
+        <div class="track"><div class="fill kcal" id="kcalFill"></div>
+          <div class="ticks"><i></i><i></i><i></i><i></i></div></div>
+      </div>
+      <div>
+        <div class="rail-head"><span>Proteína</span><b id="protTxt">0 / 0 g</b></div>
+        <div class="track"><div class="fill prot" id="protFill"></div>
+          <div class="ticks"><i></i><i></i><i></i><i></i></div></div>
+      </div>
+      <div>
+        <div class="rail-head"><span>Fibra</span><b id="fibTxt">0 / 0 g</b></div>
+        <div class="track"><div class="fill fib" id="fibFill"></div>
+          <div class="ticks"><i></i><i></i><i></i><i></i></div></div>
+      </div>
+      <div>
+        <div class="rail-head"><span>Água</span><b id="wmlTxt">0 / 0 ml</b></div>
+        <div class="track"><div class="fill wat" id="watFill"></div>
+          <div class="ticks"><i></i><i></i><i></i><i></i><i></i></div></div>
+        <div class="wbtns">
+          <button class="wbtn" id="wAdd500">🍼 500 ml</button>
+          <button class="wbtn" id="wAdd250">🥤 250</button>
+          <button class="wbtn undo" id="wUndo">↩︎</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="card">
+    <div class="toggle">
+      <button id="btnRun">Dia de corrida</button>
+      <button id="btnRest">Descanso</button>
+    </div>
+    <h2>Refeições</h2>
+    <div id="slots"></div>
+  </div>
+
+  <div class="card">
+    <div class="hintbar">Adicionando em <b id="activeName">—</b>. Toque numa refeição acima para trocar.</div>
+    <h2>Rápido</h2>
+    <div class="quick" id="quick"></div>
+    <h2 style="margin-top:4px">Buscar</h2>
+    <div class="searchrow"><input type="search" id="search" placeholder="Buscar alimento…" autocomplete="off"></div>
+    <div class="lib" id="lib"></div>
+    <div style="border-top:1px solid var(--line);margin-top:13px;padding-top:13px">
+      <div class="grid2">
+        <input type="text" id="cName" placeholder="Outro alimento">
+        <input type="number" id="cKcal" placeholder="kcal" inputmode="numeric">
+      </div>
+      <div class="grid2">
+        <input type="number" id="cProt" placeholder="proteína g" inputmode="decimal">
+        <input type="number" id="cFib" placeholder="fibra g" inputmode="decimal">
+      </div>
+      <button class="wide" id="cAdd">Adicionar</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Peso</h2>
+    <div class="wrow">
+      <input type="text" id="wIn" placeholder="Peso de hoje (kg)" inputmode="decimal" autocomplete="off">
+      <button class="add" id="wSave">Salvar</button>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="k">Média 7 dias</div><div class="v" id="avg7">—</div></div>
+      <div class="stat"><div class="k">Desde o início</div><div class="v" id="delta">—</div></div>
+    </div>
+    <svg class="spark" id="spark" viewBox="0 0 300 74" preserveAspectRatio="none" aria-label="Tendência de peso"></svg>
+    <p class="note">Só a média de 7 dias importa. Espere estagnação nos primeiros 10–14 dias.</p>
+  </div>
+
+  <div class="card">
+    <h2>Sincronização</h2>
+    <p class="sumline" id="syncDetail">—</p>
+    <button class="wide" id="syncNow">↻ Sincronizar agora</button>
+    <button class="wide ghost" id="dlJson">⤓ Baixar dados.json</button>
+    <button class="wide ghost" id="upJson">⤒ Carregar um dados.json</button>
+    <input type="file" id="fileIn" accept=".json,application/json" style="display:none">
+
+    <details class="cfg" style="margin-top:16px">
+      <summary>Configuração do GitHub</summary>
+      <div class="lbl">Onde ficam os dados</div>
+      <select id="cfgModo">
+        <option value="repo">Arquivo no repositório</option>
+        <option value="gist">Gist secreto</option>
+      </select>
+      <div id="cfgRepo">
+        <div class="lbl">Usuário / repositório / branch</div>
+        <div class="grid2">
+          <input type="text" id="cfgOwner" placeholder="usuário" autocapitalize="none" autocorrect="off">
+          <input type="text" id="cfgRepoNome" placeholder="diario-cut" autocapitalize="none" autocorrect="off">
+        </div>
+        <div class="grid2">
+          <input type="text" id="cfgBranch" placeholder="main" autocapitalize="none" autocorrect="off">
+          <input type="text" id="cfgPath" placeholder="dados.json" autocapitalize="none" autocorrect="off">
+        </div>
+      </div>
+      <div id="cfgGist" style="display:none">
+        <div class="lbl">ID do gist</div>
+        <input type="text" id="cfgGistId" placeholder="a1b2c3…" autocapitalize="none" autocorrect="off">
+      </div>
+      <div class="lbl">Token (fica só neste aparelho)</div>
+      <input type="password" id="cfgToken" placeholder="github_pat_…" autocapitalize="none" autocorrect="off">
+      <div style="height:9px"></div>
+      <button class="wide" id="cfgSave">Salvar e testar</button>
+      <p class="note">Sem token o app ainda lê os dados publicados, mas não consegue gravar.</p>
+    </details>
+  </div>
+
+  <div class="card">
+    <h2>Exportar para o Claude</h2>
+    <button class="wide ghost" id="exp">Copiar resumo legível</button>
+    <p class="note">Só precisa disto se a sincronização estiver fora do ar. Normalmente é só me pedir — eu leio o JSON direto.</p>
+  </div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+'use strict';
+
+/* ============================ constantes ============================ */
+const LS_DADOS='diario-cut-dados-v4', LS_CFG='diario-cut-cfg-v1';
+const SLOTS=[
+  ['cafe','Café da manhã','🌅'],
+  ['almoco','Almoço','🍽️'],
+  ['lanche','Lanche','🥪'],
+  ['jantar','Jantar','🌙'],
+];
+const META_PADRAO={
+  atleta:'Bill',
+  periodo:{inicio:'2026-08-11',fim:'2026-09-07'},
+  peso_inicial_kg:76.4,
+  peso_meta_kg:72.0,
+  alvos:{kcal_dia_corrida:2150,kcal_dia_descanso:1900,proteina_g:150,fibra_g:30,agua_ml:3000},
+};
+
+/* [nome, unidade, kcal, proteína, emoji, fibra] */
+const LIB_PADRAO=[
+ ['Proteínas',[
+  ['Ovo','1 un',72,6.3,'🥚',0],
+  ['Peito de frango grelhado','100 g',165,31,'🍗',0],
+  ['Patinho moído','100 g',170,27,'🥩',0],
+  ['Acém moído','100 g',250,22,'🥩',0],
+  ['Tilápia','100 g',128,26,'🐟',0],
+  ['Sardinha em lata','1 lata ~120 g',156,19.4,'🐟',0],
+  ['Atum em água','1 lata',130,28,'🐟',0],
+  ['Whey','1 scoop',120,24,'🥛',0],
+  ['Nutren Protein','1 garrafa 260 ml',114,15,'🧋',0],
+  ['Verde Campo Natural Whey','1 copo 200 g',102,12,'🥤',0],
+  ['Iogurte natural','170 g',87,6,'🥛',0],
+  ['Iogurte grego coado','100 g',100,10,'🥛',0],
+  ['Queijo minas frescal','50 g',130,9,'🧀',0],
+  ['Feijão cozido','1 concha',130,8,'🫘',8],
+ ]],
+ ['Carboidratos',[
+  ['Arroz branco','1 colher',58,1.2,'🍚',0.3],
+  ['Batata doce','100 g',77,1.4,'🍠',3],
+  ['Mandioquinha / batata baroa','100 g',101,1,'🥔',2],
+  ['Aipim cozido','100 g',125,0.6,'🥔',1.6],
+  ['Pão francês','1 un',135,4,'🥖',1.2],
+  ['Pão de forma','1 fatia',68,2.3,'🍞',1],
+  ['Tapioca (goma)','60 g',160,0,'🫓',0],
+  ['Cuscuz de milho','100 g',113,2.2,'🌽',1.5],
+  ['Aveia','30 g (3 colheres)',116,4.8,'🥣',2.9],
+ ]],
+ ['Frutas',[
+  ['Banana madura','1 média',105,1.3,'🍌',3.1],
+  ['Laranja','1 média',62,1.2,'🍊',3.1],
+  ['Mexerica','1 média',53,0.8,'🍊',1.8],
+  ['Mamão','150 g',65,0.7,'🥭',2.6],
+  ['Kiwi','2 un',84,1.6,'🥝',4.1],
+  ['Ameixa seca','5 un',115,1,'🍑',3.5],
+  ['Fruta (genérica)','1 un',75,1,'🍎',2],
+ ]],
+ ['Legumes e verduras',[
+  ['Salada verde','1 prato',35,2,'🥗',2],
+  ['Brócolis cozido','100 g',35,2.4,'🥦',2.6],
+  ['Cenoura cozida','100 g',35,0.8,'🥕',2.8],
+  ['Beterraba cozida','100 g',44,1.6,'🍠',2],
+  ['Abobrinha refogada','100 g',40,1.2,'🥒',1.1],
+  ['Couve refogada','100 g',90,3,'🥬',3.1],
+ ]],
+ ['Suplementos',[
+  ['Psyllium em flocos','1 scoop (~5 g)',18,0.1,'🥄',4],
+ ]],
+ ['Cuidado',[
+  ['Azeite / óleo','1 colher',120,0,'🫒',0],
+  ['Açaí com granola','300 ml',560,5,'🍧',3],
+  ['Cerveja','1 lata',145,1.5,'🍺',0],
+  ['Pão de queijo','1 un',90,2,'🧀',0.3],
+  ['Requeijão','1 colher',55,1.5,'🧈',0],
+  ['Castanha do Pará','3 un',100,2,'🌰',1.1],
+  ['Barra de cereal','1 barra 22 g',84,1,'🍫',0.6],
+  ['Mel','1 colher sopa (21 g)',64,0.1,'🍯',0],
+  ['Refrigerante','350 ml',140,0,'🥤',0],
+ ]],
+];
+const QUICK_PADRAO=[
+ ['Ovo','1 un',72,6.3,'🥚',0],
+ ['Pão de forma','1 fatia',68,2.3,'🍞',1],
+ ['Banana madura','1 média',105,1.3,'🍌',3.1],
+ ['Aveia','30 g (3 colheres)',116,4.8,'🥣',2.9],
+ ['Laranja','1 média',62,1.2,'🍊',3.1],
+ ['Mexerica','1 média',53,0.8,'🍊',1.8],
+ ['Mamão','150 g',65,0.7,'🥭',2.6],
+ ['Frango','100 g',165,31,'🍗',0],
+ ['Patinho moído','100 g',170,27,'🥩',0],
+ ['Arroz','1 colher',58,1.2,'🍚',0.3],
+ ['Feijão','1 concha',130,8,'🫘',8],
+ ['Legumes','1 porção',110,4,'🥗',7],
+ ['Whey','1 scoop',120,24,'🥛',0],
+ ['Verde Campo','1 copo 200 g',102,12,'🥤',0],
+ ['Psyllium','1 scoop',18,0.1,'🥄',4],
+ ['Azeite','1 colher',120,0,'🫒',0],
+];
+
+/* ============================ utilidades ============================ */
+const $=id=>document.getElementById(id);
+const clone=o=>JSON.parse(JSON.stringify(o));
+const num=v=>{const n=parseFloat(v);return isFinite(n)?n:0};
+const r0=v=>Math.round(v);
+const r1=v=>Math.round(v*10)/10;
+const r2=v=>Math.round(v*100)/100;
+const agora=()=>new Date().toISOString();
+const ts=s=>{const t=Date.parse(s||'');return isFinite(t)?t:0};
+const soma=(arr,k)=>arr.reduce((a,m)=>a+num(m[k]),0);
+function iso(d){const z=new Date(d.getTime()-d.getTimezoneOffset()*60000);return z.toISOString().slice(0,10)}
+function hoje(){return iso(new Date())}
+function shift(s,n){const d=new Date(s+'T12:00:00');d.setDate(d.getDate()+n);return iso(d)}
+function pretty(s){
+  const d=new Date(s+'T12:00:00');
+  const dw=['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'][d.getDay()];
+  const m=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'][d.getMonth()];
+  return (s===hoje()?'Hoje · ':'')+dw+', '+d.getDate()+' '+m;
+}
+function vazio(){return{cafe:[],almoco:[],lanche:[],jantar:[]}}
+function iconFor(n){
+  n=n||'';
+  if(/ovo/i.test(n))return'🥚'; if(/banana/i.test(n))return'🍌';
+  if(/frango|peito/i.test(n))return'🍗'; if(/carne|moíd|patinho|acém/i.test(n))return'🥩';
+  if(/arroz/i.test(n))return'🍚'; if(/feijão/i.test(n))return'🫘';
+  if(/pão|torrada|fatia/i.test(n))return'🍞'; if(/café/i.test(n))return'☕';
+  if(/whey|iogurte|leite/i.test(n))return'🥛'; if(/nutren/i.test(n))return'🧋';
+  if(/legume|salada|brócolis|cenoura|beterraba/i.test(n))return'🥗';
+  if(/azeite|óleo/i.test(n))return'🫒';
+  return'🍴';
+}
+function toast(m){const t=$('toast');t.textContent=m;t.classList.add('show');
+  clearTimeout(t._x);t._x=setTimeout(()=>t.classList.remove('show'),2100)}
+function b64enc(str){
+  const bytes=new TextEncoder().encode(str);
+  let bin=''; for(let i=0;i<bytes.length;i++) bin+=String.fromCharCode(bytes[i]);
+  return btoa(bin);
+}
+function b64dec(b64){
+  const bin=atob(String(b64).replace(/\s/g,''));
+  const bytes=new Uint8Array(bin.length);
+  for(let i=0;i<bin.length;i++) bytes[i]=bin.charCodeAt(i);
+  return new TextDecoder().decode(bytes);
+}
+
+/* ============================ estado ============================ */
+/* Interno: {meta, dias:{ 'YYYY-MM-DD': {tipo,peso_kg,agua_ml,slots,_ts} }} */
+let DB={meta:clone(META_PADRAO),dias:{}};
+let cur=hoje(), active='cafe';
+let CFG={modo:'repo',owner:'',repo:'',branch:'main',path:'dados.json',gist:'',token:''};
+let SYNC={estado:'off',msg:'sem sincronização',pendente:false,sha:null,ultimo:null};
+
+function meta(){return DB.meta}
+function alvos(){return DB.meta.alvos}
+function libAtual(){return Array.isArray(DB.meta.biblioteca)&&DB.meta.biblioteca.length?DB.meta.biblioteca:LIB_PADRAO}
+function quickAtual(){return Array.isArray(DB.meta.rapidos)&&DB.meta.rapidos.length?DB.meta.rapidos:QUICK_PADRAO}
+
+function dia(s){
+  if(!DB.dias[s]) DB.dias[s]={tipo:'run',peso_kg:null,agua_ml:0,slots:vazio(),_ts:agora()};
+  const d=DB.dias[s];
+  if(!d.slots) d.slots=vazio();
+  SLOTS.forEach(([id])=>{ if(!Array.isArray(d.slots[id])) d.slots[id]=[] });
+  if(d.agua_ml==null) d.agua_ml=0;
+  return d;
+}
+function tocar(s){ dia(s)._ts=agora(); }
+
+/* ============================ (de)serialização ============================ */
+function alvoDoDia(d){
+  const a=alvos();
+  return {kcal: d.tipo==='rest'?num(a.kcal_dia_descanso):num(a.kcal_dia_corrida),
+          proteina_g:num(a.proteina_g), fibra_g:num(a.fibra_g)};
+}
+function totalDoDia(d){
+  let k=0,p=0,f=0;
+  SLOTS.forEach(([id])=>(d.slots[id]||[]).forEach(m=>{k+=num(m.k);p+=num(m.p);f+=num(m.f)}));
+  return {kcal:r0(k),proteina_g:r1(p),fibra_g:r1(f)};
+}
+
+/* Interno -> documento canônico (é isto que vai para o JSON) */
+function serializar(){
+  const datas=Object.keys(DB.dias).sort();
+  const serie=datas.filter(x=>DB.dias[x].peso_kg!=null).map(x=>({data:x,kg:DB.dias[x].peso_kg}));
+  const ult=serie.slice(-7).map(s=>s.kg);
+  const m7=ult.length?r2(ult.reduce((a,b)=>a+b,0)/ult.length):null;
+  const m=clone(DB.meta);
+  m.atualizado_em=agora();
+  m.dias_registrados=datas.length;
+  return {
+    schema:2,
+    _leia_me:'Fonte única de verdade do Diário do Cut. O app lê e regrava este arquivo. Subtotais, totais, médias e diferenças são recalculados pelo app — para editar, mexa em dias[].refeicoes[].itens[], em peso_kg/agua_ml/tipo, ou em meta.alvos.',
+    meta:m,
+    peso:{
+      serie,
+      media_movel_7d_kg:m7,
+      variacao_desde_inicio_kg:(m7!=null?r2(m7-num(m.peso_inicial_kg)):null),
+    },
+    dias:datas.map(x=>{
+      const d=DB.dias[x], tot=totalDoDia(d), alvo=alvoDoDia(d);
+      return {
+        data:x,
+        tipo:d.tipo||'run',
+        peso_kg:(d.peso_kg==null?null:d.peso_kg),
+        agua_ml:num(d.agua_ml),
+        atualizado_em:d._ts||null,
+        refeicoes:SLOTS.filter(([id])=>(d.slots[id]||[]).length).map(([id,label])=>{
+          const itens=d.slots[id];
+          return {
+            refeicao:id,label,
+            itens:itens.map(it=>({
+              nome:it.n,kcal:r0(num(it.k)),proteina_g:r1(num(it.p)),fibra_g:r1(num(it.f)),
+              emoji:it.i||iconFor(it.n),id:it.id||it.n,qtd:num(it.q)||1
+            })),
+            subtotal:{kcal:r0(soma(itens,'k')),proteina_g:r1(soma(itens,'p')),fibra_g:r1(soma(itens,'f'))},
+          };
+        }),
+        total:tot,
+        alvo,
+        diferenca:{kcal:r0(tot.kcal-alvo.kcal),proteina_g:r1(tot.proteina_g-alvo.proteina_g)},
+      };
+    }),
+  };
+}
+
+/* Documento canônico -> interno. Tolera o formato antigo (v1) também. */
+function desserializar(doc){
+  if(!doc||typeof doc!=='object') return null;
+  const mIn=doc.meta||{};
+  const m=Object.assign({},META_PADRAO,mIn);
+  m.alvos=Object.assign({},META_PADRAO.alvos,mIn.alvos||{});
+  m.periodo=Object.assign({},META_PADRAO.periodo,mIn.periodo||{});
+  const dias={};
+  const carimbo=mIn.atualizado_em||'1970-01-01T00:00:00.000Z';
+
+  if(Array.isArray(doc.dias)){
+    doc.dias.forEach(D=>{
+      if(!D||!D.data) return;
+      const d={tipo:(D.tipo==='rest'?'rest':'run'),
+               peso_kg:(D.peso_kg==null?null:num(D.peso_kg)),
+               agua_ml:num(D.agua_ml),slots:vazio(),
+               _ts:D.atualizado_em||carimbo};
+      (D.refeicoes||[]).forEach(R=>{
+        const sid=(R&&R.refeicao&&d.slots[R.refeicao]!==undefined)?R.refeicao:'cafe';
+        ((R&&R.itens)||[]).forEach(it=>{
+          if(!it||!it.nome) return;
+          d.slots[sid].push({
+            n:String(it.nome),k:num(it.kcal),p:num(it.proteina_g),f:num(it.fibra_g),
+            i:it.emoji||iconFor(it.nome),id:it.id||String(it.nome),q:num(it.qtd)||1,
+          });
+        });
+      });
+      dias[D.data]=d;
+    });
+  } else if(doc.days&&typeof doc.days==='object'){ /* formato v1/v3 antigo */
+    Object.entries(doc.days).forEach(([k,D])=>{
+      const d={tipo:(D.type==='rest'?'rest':'run'),
+               peso_kg:(D.weight==null?null:num(D.weight)),
+               agua_ml:num(D.water),slots:vazio(),_ts:carimbo};
+      const src=D.slots||{};
+      SLOTS.forEach(([sid])=>{
+        (src[sid]||[]).forEach(it=>{
+          d.slots[sid].push({n:String(it.n),k:num(it.k),p:num(it.p),f:num(it.f),
+            i:it.i||iconFor(it.n),id:it._id||String(it.n),q:num(it._q)||1});
+        });
+      });
+      dias[k]=d;
+    });
+  } else return null;
+
+  return {meta:m,dias};
+}
+
+/* Mescla dois estados: por dia, ganha o carimbo mais recente. */
+function mesclar(A,B){
+  const metaVence=(ts(B.meta.atualizado_em)>ts(A.meta.atualizado_em))?B.meta:A.meta;
+  const out={meta:clone(metaVence),dias:{}};
+  const chaves=new Set([...Object.keys(A.dias),...Object.keys(B.dias)]);
+  chaves.forEach(k=>{
+    const a=A.dias[k],b=B.dias[k];
+    if(!a){out.dias[k]=clone(b);return}
+    if(!b){out.dias[k]=clone(a);return}
+    out.dias[k]=clone(ts(b._ts)>ts(a._ts)?b:a);
+  });
+  return out;
+}
+
+/* ============================ persistência local ============================ */
+function salvarLocal(){
+  try{
+    const doc=serializar();
+    DB.meta.atualizado_em=doc.meta.atualizado_em;
+    localStorage.setItem(LS_DADOS,JSON.stringify(doc));
+    return true;
+  }catch(e){ console.warn('localStorage falhou',e); return false }
+}
+function carregarLocal(){
+  try{
+    const raw=localStorage.getItem(LS_DADOS);
+    if(!raw) return null;
+    return desserializar(JSON.parse(raw));
+  }catch(e){ return null }
+}
+function salvarCfg(){ try{localStorage.setItem(LS_CFG,JSON.stringify(CFG))}catch(e){} }
+/* Se o app está servido em <usuario>.github.io/<repo>/, dá para adivinhar
+   usuário e repositório sozinho — assim a LEITURA funciona sem configurar nada.
+   Só o token (para gravar) precisa ser digitado. */
+function adivinharCfg(){
+  try{
+    const h=location.hostname, p=location.pathname.split('/').filter(Boolean);
+    if(!/\.github\.io$/i.test(h)) return;
+    if(!CFG.owner) CFG.owner=h.replace(/\.github\.io$/i,'');
+    if(!CFG.repo)  CFG.repo = p.length ? p[0] : h;
+  }catch(e){}
+}
+function carregarCfg(){
+  try{ const raw=localStorage.getItem(LS_CFG); if(raw) CFG=Object.assign(CFG,JSON.parse(raw)); }catch(e){}
+  adivinharCfg();
+}
+
+/* ============================ GitHub ============================ */
+const API='https://api.github.com';
+function cfgPronta(){
+  if(CFG.modo==='gist') return !!CFG.gist;
+  return !!(CFG.owner&&CFG.repo);
+}
+function cabecalhos(){
+  const h={'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'};
+  if(CFG.token) h['Authorization']='Bearer '+CFG.token.trim();
+  return h;
+}
+function urlPublica(){
+  if(CFG.modo==='gist') return null;
+  return 'https://raw.githubusercontent.com/'+CFG.owner+'/'+CFG.repo+'/'+(CFG.branch||'main')+'/'+(CFG.path||'dados.json')+'?t='+Date.now();
+}
+
+/* Lê o remoto. Retorna {doc, sha} ou null. */
+async function lerRemoto(){
+  if(!cfgPronta()) return null;
+  try{
+    if(CFG.modo==='gist'){
+      const r=await fetch(API+'/gists/'+CFG.gist,{headers:cabecalhos(),cache:'no-store'});
+      if(!r.ok) throw new Error('gist '+r.status);
+      const j=await r.json();
+      const nome=(CFG.path||'dados.json');
+      const arq=j.files&&(j.files[nome]||Object.values(j.files)[0]);
+      if(!arq) throw new Error('arquivo não encontrado no gist');
+      let txt=arq.content;
+      if(arq.truncated&&arq.raw_url){ txt=await (await fetch(arq.raw_url,{cache:'no-store'})).text(); }
+      return {doc:JSON.parse(txt),sha:null};
+    }
+    if(CFG.token){
+      const u=API+'/repos/'+CFG.owner+'/'+CFG.repo+'/contents/'+encodeURIComponent(CFG.path||'dados.json')+'?ref='+encodeURIComponent(CFG.branch||'main');
+      const r=await fetch(u,{headers:cabecalhos(),cache:'no-store'});
+      if(r.status===404) return {doc:null,sha:null};
+      if(!r.ok) throw new Error('contents '+r.status);
+      const j=await r.json();
+      return {doc:JSON.parse(b64dec(j.content)),sha:j.sha};
+    }
+    const r=await fetch(urlPublica(),{cache:'no-store'});
+    if(!r.ok) throw new Error('raw '+r.status);
+    return {doc:await r.json(),sha:null};
+  }catch(e){ throw e }
+}
+
+/* Grava o remoto. Precisa de token. */
+async function gravarRemoto(doc,sha){
+  if(!CFG.token) throw new Error('sem token');
+  const texto=JSON.stringify(doc,null,2)+'\n';
+  if(CFG.modo==='gist'){
+    const body={files:{}}; body.files[CFG.path||'dados.json']={content:texto};
+    const r=await fetch(API+'/gists/'+CFG.gist,{method:'PATCH',headers:Object.assign({'Content-Type':'application/json'},cabecalhos()),body:JSON.stringify(body)});
+    if(!r.ok) throw new Error('gist PATCH '+r.status+' '+(await r.text()).slice(0,120));
+    return null;
+  }
+  const u=API+'/repos/'+CFG.owner+'/'+CFG.repo+'/contents/'+encodeURIComponent(CFG.path||'dados.json');
+  const body={message:'diário: '+new Date().toLocaleString('pt-BR'),content:b64enc(texto),branch:CFG.branch||'main'};
+  if(sha) body.sha=sha;
+  const r=await fetch(u,{method:'PUT',headers:Object.assign({'Content-Type':'application/json'},cabecalhos()),body:JSON.stringify(body)});
+  if(!r.ok) throw new Error('PUT '+r.status+' '+(await r.text()).slice(0,120));
+  const j=await r.json();
+  return j.content&&j.content.sha;
+}
+
+/* ============================ orquestração da sync ============================ */
+function pintarSync(){
+  const el=$('syncTxt'), det=$('syncDetail');
+  const mapa={ok:'',pendente:'warn',erro:'bad',off:'',ocupado:''};
+  el.className='sync '+(mapa[SYNC.estado]||'');
+  const curto={ok:'✓ '+(SYNC.ultimo||''),pendente:'⏳ pendente',erro:'⚠ erro',off:'local',ocupado:'…'}[SYNC.estado]||'';
+  el.textContent=curto;
+  if(det) det.textContent=SYNC.msg, det.classList.toggle('bad',SYNC.estado==='erro');
+}
+function setSync(estado,msg){
+  SYNC.estado=estado; SYNC.msg=msg;
+  if(estado==='ok') SYNC.ultimo=new Date().toTimeString().slice(0,5);
+  pintarSync();
+}
+
+let timerPush=null;
+function agendarPush(){
+  SYNC.pendente=true;
+  if(!cfgPronta()||!CFG.token){ setSync(cfgPronta()?'pendente':'off', cfgPronta()?'Sem token — só leitura. Configure abaixo para gravar.':'Sem sincronização. Configure o GitHub abaixo.'); return; }
+  setSync('pendente','Alterações pendentes…');
+  clearTimeout(timerPush);
+  timerPush=setTimeout(()=>{sincronizar(false)},2500);
+}
+
+let sincronizando=false;
+async function sincronizar(manual){
+  if(!cfgPronta()){ setSync('off','Sem sincronização. Configure o GitHub abaixo.'); return }
+  if(sincronizando){ return }
+  sincronizando=true;
+  setSync('ocupado','Sincronizando…');
+  try{
+    const rem=await lerRemoto();
+    if(rem&&rem.doc){
+      const remoto=desserializar(rem.doc);
+      if(remoto) DB=mesclar(DB,remoto);
+      SYNC.sha=rem.sha;
+    }
+    render();
+    if(CFG.token){
+      const doc=serializar();
+      const novaSha=await gravarRemoto(doc,SYNC.sha);
+      if(novaSha) SYNC.sha=novaSha;
+      DB.meta.atualizado_em=doc.meta.atualizado_em;
+      salvarLocal();
+      SYNC.pendente=false;
+      setSync('ok','Sincronizado com '+(CFG.modo==='gist'?'o gist':(CFG.owner+'/'+CFG.repo))+'.');
+    }else{
+      salvarLocal();
+      setSync('pendente','Leitura ok, mas sem token não consigo gravar.');
+    }
+    if(manual) toast('Sincronizado ✓');
+  }catch(e){
+    console.warn(e);
+    salvarLocal();
+    const off=!navigator.onLine;
+    setSync('erro',(off?'Offline — ':'')+'Não sincronizou: '+e.message+'. Os dados estão salvos neste aparelho.');
+    if(manual) toast('Falhou: '+e.message);
+  }finally{ sincronizando=false }
+}
+
+async function salvar(){
+  salvarLocal();
+  agendarPush();
+}
+
+/* ============================ render ============================ */
+function render(){
+  const d=dia(cur), a=alvos();
+  $('brandTxt').textContent='Diário do Cut · '+String(meta().peso_inicial_kg).replace('.',',')+' → '+String(meta().peso_meta_kg).replace('.',',');
+  $('dayLabel').textContent=pretty(cur);
+  const tk=d.tipo==='rest'?num(a.kcal_dia_descanso):num(a.kcal_dia_corrida);
+  $('btnRun').textContent='Dia de corrida · '+num(a.kcal_dia_corrida);
+  $('btnRest').textContent='Descanso · '+num(a.kcal_dia_descanso);
+  $('btnRun').classList.toggle('on',d.tipo!=='rest');
+  $('btnRest').classList.toggle('on',d.tipo==='rest');
+
+  const t=totalDoDia(d);
+  $('kcalTxt').textContent=r0(t.kcal)+' / '+tk;
+  $('protTxt').textContent=r0(t.proteina_g)+' / '+num(a.proteina_g)+' g';
+  $('fibTxt').textContent=r1(t.fibra_g)+' / '+num(a.fibra_g)+' g';
+  const kf=$('kcalFill'),pf=$('protFill'),ff=$('fibFill');
+  kf.style.width=Math.min(100,tk?t.kcal/tk*100:0)+'%';
+  kf.classList.toggle('over',t.kcal>tk*1.08);
+  pf.style.width=Math.min(100,num(a.proteina_g)?t.proteina_g/num(a.proteina_g)*100:0)+'%';
+  ff.style.width=Math.min(100,num(a.fibra_g)?t.fibra_g/num(a.fibra_g)*100:0)+'%';
+
+  const host=$('slots'); host.innerHTML='';
+  SLOTS.forEach(([id,label,emoji])=>{
+    const itens=d.slots[id];
+    const sk=soma(itens,'k'),sp=soma(itens,'p'),sf=soma(itens,'f');
+    const box=document.createElement('div');
+    box.className='slot'+(id===active?' active':'');
+    const head=document.createElement('div'); head.className='slot-h';
+    head.innerHTML='<span class="e">'+emoji+'</span><span class="t"></span>'+
+      '<span class="s">'+(itens.length?r0(sk)+' kcal · '+r0(sp)+' g'+(sf?' · '+r1(sf)+' fib':''):'—')+'</span>';
+    head.querySelector('.t').textContent=label;
+    head.onclick=()=>{active=id;render()};
+    box.appendChild(head);
+
+    const body=document.createElement('div'); body.className='slot-b';
+    if(!itens.length){
+      body.innerHTML='<p class="slot-e">'+(id===active?'Toque nos atalhos abaixo para adicionar.':'Vazio')+'</p>';
+    }else{
+      itens.forEach((m,i)=>{
+        const row=document.createElement('div'); row.className='item';
+        row.innerHTML='<div class="ie"></div><div class="ib"><div class="inm"></div>'+
+          '<div class="isb"><span class="num">'+r0(num(m.k))+'</span> kcal · '+
+          '<span class="p num">'+r1(num(m.p))+'</span><span class="p"> g prot</span>'+
+          (num(m.f)?' · <span class="num">'+r1(num(m.f))+'</span> g fibra':'')+'</div></div>'+
+          '<button class="del" aria-label="Remover">×</button>';
+        row.querySelector('.ie').textContent=m.i||iconFor(m.n);
+        row.querySelector('.inm').textContent=m.n;
+        row.querySelector('.del').onclick=async()=>{itens.splice(i,1);tocar(cur);await salvar();render()};
+        body.appendChild(row);
+      });
+    }
+    box.appendChild(body);
+    host.appendChild(box);
+  });
+
+  const an=SLOTS.find(s=>s[0]===active);
+  $('activeName').textContent=an?an[1]:'—';
+  aguaRender();
+  $('wIn').value = d.peso_kg!=null ? String(d.peso_kg).replace('.',',') : '';
+  pesoStats();
+  desenharQuick();
+}
+
+function aguaRender(){
+  const d=dia(cur), ml=num(d.agua_ml), alvo=num(alvos().agua_ml)||3000;
+  $('wmlTxt').textContent=ml+' / '+alvo+' ml';
+  $('watFill').style.width=Math.min(100,ml/alvo*100)+'%';
+}
+async function aguaAdd(n){
+  const d=dia(cur), antes=num(d.agua_ml);
+  d.agua_ml=Math.max(0,antes+n);
+  if(d.agua_ml===antes){toast('Já está em zero');return}
+  tocar(cur); await salvar(); aguaRender();
+  toast(n>0?'💧 '+d.agua_ml+' ml hoje':'↩︎ '+d.agua_ml+' ml hoje');
+}
+
+function pesoStats(){
+  const es=Object.keys(DB.dias).filter(k=>DB.dias[k].peso_kg!=null).sort();
+  const ult7=es.slice(-7).map(k=>DB.dias[k].peso_kg);
+  const a7=ult7.length?ult7.reduce((a,b)=>a+b,0)/ult7.length:null;
+  $('avg7').innerHTML = a7!=null ? a7.toFixed(1).replace('.',',')+' <small>kg</small>' : '—';
+  const del=$('delta');
+  if(a7!=null){
+    const dd=a7-num(meta().peso_inicial_kg);
+    del.innerHTML=(dd>0?'+':'')+dd.toFixed(1).replace('.',',')+' <small>kg</small>';
+    del.style.color = dd<=0?'var(--ok)':'var(--muted)';
+  }else del.textContent='—';
+
+  const sv=$('spark'), pts=es.map(k=>DB.dias[k].peso_kg), meta_=num(meta().peso_meta_kg);
+  if(pts.length<2){sv.innerHTML='<text x="150" y="40" text-anchor="middle" fill="#6E766E" font-size="11" font-family="IBM Plex Sans">Precisa de 2+ pesagens</text>';return}
+  const lo=Math.min(...pts,meta_)-.4, hi=Math.max(...pts)+.4, rg=(hi-lo)||1;
+  const X=i=>i/(pts.length-1)*294+3, Y=v=>70-((v-lo)/rg)*62;
+  const path=pts.map((v,i)=>(i?'L':'M')+X(i).toFixed(1)+' '+Y(v).toFixed(1)).join(' ');
+  const dots=pts.map((v,i)=>'<circle cx="'+X(i).toFixed(1)+'" cy="'+Y(v).toFixed(1)+'" r="2.6" fill="#14453B"/>').join('');
+  sv.innerHTML='<line x1="0" y1="'+Y(meta_).toFixed(1)+'" x2="300" y2="'+Y(meta_).toFixed(1)+
+    '" stroke="#B5811A" stroke-width="1" stroke-dasharray="4 4"/>'+
+    '<path d="'+path+'" fill="none" stroke="#14453B" stroke-width="2" stroke-linejoin="round"/>'+dots;
+}
+
+async function push(nome,unidade,k,p,emoji,q,fib){
+  const itens=dia(cur).slots[active];
+  const chave=nome+'|'+(unidade||'');
+  const f=num(fib)*q;
+  const igual=itens.find(m=>m.id===chave);
+  if(igual){
+    igual.k=num(igual.k)+k*q; igual.p=num(igual.p)+p*q; igual.f=num(igual.f)+f;
+    igual.q=num(igual.q)+q;
+    igual.n=(igual.q===1?'':igual.q+'× ')+nome+(unidade?' ('+unidade+')':'');
+  }else{
+    itens.push({n:(q===1?'':q+'× ')+nome+(unidade?' ('+unidade+')':''),
+      k:k*q,p:p*q,f,i:emoji,id:chave,q});
+  }
+  tocar(cur); await salvar(); render();
+  const sl=SLOTS.find(s=>s[0]===active);
+  toast(emoji+'  '+nome+' → '+(sl?sl[1]:''));
+}
+
+function desenharQuick(){
+  const c=$('quick'); c.innerHTML='';
+  quickAtual().forEach(([n,u,k,p,e,fb])=>{
+    const b=document.createElement('button'); b.className='chip';
+    b.innerHTML='<span class="e">'+(e||'🍴')+'</span><span class="l"></span><span class="m">'+k+' · '+p+'g</span>';
+    b.querySelector('.l').textContent=n;
+    b.onclick=()=>push(n,u,num(k),num(p),e||iconFor(n),1,fb);
+    c.appendChild(b);
+  });
+}
+function desenharLib(q){
+  const c=$('lib'); c.innerHTML='';
+  const s=String(q||'').trim().toLowerCase();
+  if(!s) return;
+  libAtual().forEach(([grp,itens])=>{
+    const hits=itens.filter(it=>it[0].toLowerCase().includes(s));
+    if(!hits.length) return;
+    const h=document.createElement('div'); h.className='libgroup'; h.textContent=grp; c.appendChild(h);
+    hits.forEach(([n,u,k,p,e,fb])=>{
+      const row=document.createElement('div'); row.className='libitem';
+      row.innerHTML='<div class="ic">'+(e||'🍴')+'</div><div class="n"><span></span>'+
+        '<em>'+u+' · '+k+' kcal · '+p+' g prot'+(fb?' · '+fb+' g fibra':'')+'</em></div>'+
+        '<input class="qty" type="number" value="1" min="0" step="0.5" inputmode="decimal">'+
+        '<button class="add">+</button>';
+      row.querySelector('.n span').textContent=n;
+      const qi=row.querySelector('.qty');
+      row.querySelector('.add').onclick=async()=>{await push(n,u,num(k),num(p),e||iconFor(n),parseFloat(qi.value)||1,fb);qi.value=1};
+      c.appendChild(row);
+    });
+  });
+  if(!c.children.length) c.innerHTML='<p class="slot-e">Nenhum resultado. Use o campo abaixo.</p>';
+}
+
+/* ============================ eventos ============================ */
+$('prev').onclick=()=>{cur=shift(cur,-1);render()};
+$('next').onclick=()=>{cur=shift(cur,1);render()};
+$('btnRun').onclick=async()=>{dia(cur).tipo='run';tocar(cur);await salvar();render()};
+$('btnRest').onclick=async()=>{dia(cur).tipo='rest';tocar(cur);await salvar();render()};
+$('search').oninput=e=>desenharLib(e.target.value);
+$('cAdd').onclick=async()=>{
+  const n=$('cName').value.trim();
+  const k=parseFloat($('cKcal').value);
+  const p=parseFloat($('cProt').value);
+  const fb=parseFloat($('cFib').value);
+  if(!n||isNaN(k)){toast('Precisa de nome e calorias');return}
+  dia(cur).slots[active].push({n,k,p:isNaN(p)?0:p,f:isNaN(fb)?0:fb,i:iconFor(n),id:n+'|',q:1});
+  ['cName','cKcal','cProt','cFib'].forEach(id=>$(id).value='');
+  tocar(cur); await salvar(); render(); toast('Adicionado');
+};
+$('wAdd500').onclick=()=>aguaAdd(500);
+$('wAdd250').onclick=()=>aguaAdd(250);
+$('wUndo').onclick=()=>aguaAdd(-250);
+$('wSave').onclick=async()=>{
+  const v=parseFloat($('wIn').value.trim().replace(',','.'));
+  if(isNaN(v)||v<30||v>250){toast('Peso inválido');return}
+  dia(cur).peso_kg=r1(v); tocar(cur); await salvar(); render(); toast('Peso salvo');
+};
+
+$('syncNow').onclick=()=>sincronizar(true);
+$('dlJson').onclick=()=>{
+  const blob=new Blob([JSON.stringify(serializar(),null,2)+'\n'],{type:'application/json'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob); a.download='dados.json';
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(()=>URL.revokeObjectURL(a.href),3000);
+  toast('Baixado');
+};
+$('upJson').onclick=()=>$('fileIn').click();
+$('fileIn').onchange=async e=>{
+  const f=e.target.files&&e.target.files[0]; if(!f) return;
+  try{
+    const novo=desserializar(JSON.parse(await f.text()));
+    if(!novo) throw new Error('formato desconhecido');
+    const n=Object.keys(novo.dias).length;
+    if(!confirm('Carregar '+n+' dia(s) deste arquivo? Onde houver conflito, vence o registro mais recente.')) return;
+    DB=mesclar(DB,novo);
+    salvarLocal(); render(); agendarPush();
+    toast('Carregado: '+n+' dia(s)');
+  }catch(err){ toast('Arquivo inválido: '+err.message) }
+  finally{ e.target.value='' }
+};
+
+$('cfgModo').onchange=()=>{
+  const g=$('cfgModo').value==='gist';
+  $('cfgGist').style.display=g?'':'none';
+  $('cfgRepo').style.display=g?'none':'';
+};
+$('cfgSave').onclick=async()=>{
+  CFG.modo=$('cfgModo').value;
+  CFG.owner=$('cfgOwner').value.trim();
+  CFG.repo=$('cfgRepoNome').value.trim();
+  CFG.branch=$('cfgBranch').value.trim()||'main';
+  CFG.path=$('cfgPath').value.trim()||'dados.json';
+  CFG.gist=$('cfgGistId').value.trim();
+  CFG.token=$('cfgToken').value.trim();
+  salvarCfg();
+  toast('Configuração salva');
+  await sincronizar(true);
+};
+$('exp').onclick=async()=>{
+  let t='DIÁRIO DO CUT — '+meta().peso_inicial_kg+' kg → '+meta().peso_meta_kg+' kg\n\n';
+  Object.keys(DB.dias).sort().forEach(k=>{
+    const d=dia(k), tot=totalDoDia(d);
+    const algo=SLOTS.some(([id])=>d.slots[id].length);
+    if(!algo&&d.peso_kg==null&&!d.agua_ml) return;
+    t+=k+'  ['+(d.tipo==='rest'?'descanso':'corrida')+']'+(d.peso_kg!=null?'  peso '+d.peso_kg+' kg':'')+(d.agua_ml?'  água '+d.agua_ml+' ml':'')+'\n';
+    SLOTS.forEach(([id,label])=>{
+      const itens=d.slots[id]; if(!itens.length) return;
+      t+='  '+label+' — '+r0(soma(itens,'k'))+' kcal, '+r0(soma(itens,'p'))+' g prot'+(soma(itens,'f')?', '+r1(soma(itens,'f'))+' g fibra':'')+'\n';
+      itens.forEach(m=>{t+='    · '+m.n+' ('+r0(num(m.k))+' kcal, '+r1(num(m.p))+' g prot'+(num(m.f)?', '+r1(num(m.f))+' g fibra':'')+')\n'});
+    });
+    if(algo) t+='  TOTAL '+tot.kcal+' kcal, '+r0(tot.proteina_g)+' g proteína, '+tot.fibra_g+' g fibra\n';
+    t+='\n';
+  });
+  try{ await navigator.clipboard.writeText(t); toast('Copiado'); }
+  catch(e){ console.log(t); toast('Veja o console'); }
+};
+
+window.addEventListener('online',()=>{ if(SYNC.pendente) sincronizar(false) });
+document.addEventListener('visibilitychange',()=>{ if(!document.hidden) sincronizar(false) });
+
+/* ============================ arranque ============================ */
+function preencherCfgUI(){
+  $('cfgModo').value=CFG.modo;
+  $('cfgOwner').value=CFG.owner; $('cfgRepoNome').value=CFG.repo;
+  $('cfgBranch').value=CFG.branch; $('cfgPath').value=CFG.path;
+  $('cfgGistId').value=CFG.gist; $('cfgToken').value=CFG.token;
+  $('cfgModo').onchange();
+}
+async function iniciar(){
+  carregarCfg(); preencherCfgUI();
+  const local=carregarLocal();
+  if(local) DB=local;
+  desenharQuick(); desenharLib(''); render();
+  if(cfgPronta()) await sincronizar(false);
+  else setSync('off','Sem sincronização. Configure o GitHub abaixo.');
+  render();
+}
+iniciar();
+
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
+}
+</script>
+</body>
+</html>
