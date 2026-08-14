@@ -16,7 +16,7 @@
       "fibra_g": 30,
       "agua_ml": 3000
     },
-    "atualizado_em": "2026-08-14T14:00:02.192Z",
+    "atualizado_em": "2026-08-14T14:00:27.687Z",
     "dias_registrados": 4
   },
   "peso": {
@@ -570,7 +570,7 @@
       "tipo": "run",
       "peso_kg": 75.5,
       "agua_ml": 500,
-      "atualizado_em": "2026-08-14T13:32:37.593Z",
+      "atualizado_em": "2026-08-14T14:00:24.871Z",
       "refeicoes": [
         {
           "refeicao": "cafe",
@@ -611,18 +611,27 @@
               "emoji": "🍯",
               "id": "Mel (1 colher sopa)",
               "qtd": 1
+            },
+            {
+              "nome": "Whey Soldiers",
+              "kcal": 217,
+              "proteina_g": 28,
+              "fibra_g": 0,
+              "emoji": "🥛",
+              "id": "Whey Soldiers|",
+              "qtd": 1
             }
           ],
           "subtotal": {
-            "kcal": 366,
-            "proteina_g": 17,
+            "kcal": 583,
+            "proteina_g": 45,
             "fibra_g": 1.3
           }
         }
       ],
       "total": {
-        "kcal": 366,
-        "proteina_g": 17,
+        "kcal": 583,
+        "proteina_g": 45,
         "fibra_g": 1.3
       },
       "alvo": {
@@ -631,8 +640,8 @@
         "fibra_g": 30
       },
       "diferenca": {
-        "kcal": -1784,
-        "proteina_g": -133
+        "kcal": -1567,
+        "proteina_g": -105
       }
     }
   ]
