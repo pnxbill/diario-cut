@@ -16,7 +16,7 @@
       "fibra_g": 30,
       "agua_ml": 3000
     },
-    "atualizado_em": "2026-08-14T22:39:38.095Z",
+    "atualizado_em": "2026-08-14T22:40:02.443Z",
     "dias_registrados": 4
   },
   "peso": {
@@ -570,7 +570,7 @@
       "tipo": "run",
       "peso_kg": 75.5,
       "agua_ml": 2250,
-      "atualizado_em": "2026-08-14T22:26:17.333Z",
+      "atualizado_em": "2026-08-14T22:39:57.433Z",
       "refeicoes": [
         {
           "refeicao": "cafe",
@@ -712,12 +712,41 @@
             "proteina_g": 31.3,
             "fibra_g": 7.1
           }
+        },
+        {
+          "refeicao": "jantar",
+          "label": "Jantar",
+          "itens": [
+            {
+              "nome": "X-egg-bacon s/ batata palha e maionese (pão, bife, queijo, ovo, bacon, milho, salada)",
+              "kcal": 650,
+              "proteina_g": 48.5,
+              "fibra_g": 2.5,
+              "emoji": "🍔",
+              "id": "X-egg-bacon s/ batata palha e maionese (pão, bife, queijo, ovo, bacon, milho, salada)",
+              "qtd": 1
+            },
+            {
+              "nome": "Coca-Cola Zero (280 ml)",
+              "kcal": 1,
+              "proteina_g": 0,
+              "fibra_g": 0,
+              "emoji": "🥤",
+              "id": "Coca-Cola Zero (280 ml)",
+              "qtd": 1
+            }
+          ],
+          "subtotal": {
+            "kcal": 651,
+            "proteina_g": 48.5,
+            "fibra_g": 2.5
+          }
         }
       ],
       "total": {
-        "kcal": 1516,
-        "proteina_g": 131.5,
-        "fibra_g": 15.9
+        "kcal": 2167,
+        "proteina_g": 180,
+        "fibra_g": 18.4
       },
       "alvo": {
         "kcal": 2150,
@@ -725,8 +754,8 @@
         "fibra_g": 30
       },
       "diferenca": {
-        "kcal": -634,
-        "proteina_g": -18.5
+        "kcal": 17,
+        "proteina_g": 30
       }
     }
   ]
