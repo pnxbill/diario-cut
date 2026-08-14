@@ -16,8 +16,8 @@
       "fibra_g": 30,
       "agua_ml": 3000
     },
-    "atualizado_em": "2026-08-14T09:52:36.084Z",
-    "dias_registrados": 3
+    "atualizado_em": "2026-08-14T09:52:59.965Z",
+    "dias_registrados": 4
   },
   "peso": {
     "serie": [
@@ -32,10 +32,14 @@
       {
         "data": "2026-08-13",
         "kg": 75.6
+      },
+      {
+        "data": "2026-08-14",
+        "kg": 75.5
       }
     ],
-    "media_movel_7d_kg": 75.87,
-    "variacao_desde_inicio_kg": -0.53
+    "media_movel_7d_kg": 75.78,
+    "variacao_desde_inicio_kg": -0.62
   },
   "dias": [
     {
@@ -559,6 +563,28 @@
       "diferenca": {
         "kcal": 16,
         "proteina_g": -1
+      }
+    },
+    {
+      "data": "2026-08-14",
+      "tipo": "run",
+      "peso_kg": 75.5,
+      "agua_ml": 0,
+      "atualizado_em": "2026-08-14T09:52:57.134Z",
+      "refeicoes": [],
+      "total": {
+        "kcal": 0,
+        "proteina_g": 0,
+        "fibra_g": 0
+      },
+      "alvo": {
+        "kcal": 2150,
+        "proteina_g": 150,
+        "fibra_g": 30
+      },
+      "diferenca": {
+        "kcal": -2150,
+        "proteina_g": -150
       }
     }
   ]
