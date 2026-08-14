@@ -16,7 +16,7 @@
       "fibra_g": 30,
       "agua_ml": 3000
     },
-    "atualizado_em": "2026-08-14T18:39:42.589Z",
+    "atualizado_em": "2026-08-14T18:40:06.922Z",
     "dias_registrados": 4
   },
   "peso": {
@@ -570,7 +570,7 @@
       "tipo": "run",
       "peso_kg": 75.5,
       "agua_ml": 1250,
-      "atualizado_em": "2026-08-14T17:15:10.611Z",
+      "atualizado_em": "2026-08-14T18:40:04.074Z",
       "refeicoes": [
         {
           "refeicao": "cafe",
@@ -665,11 +665,31 @@
             "proteina_g": 55.2,
             "fibra_g": 7.5
           }
+        },
+        {
+          "refeicao": "lanche",
+          "label": "Lanche",
+          "itens": [
+            {
+              "nome": "Iogurte",
+              "kcal": 127,
+              "proteina_g": 15,
+              "fibra_g": 0,
+              "emoji": "🥛",
+              "id": "Iogurte|",
+              "qtd": 1
+            }
+          ],
+          "subtotal": {
+            "kcal": 127,
+            "proteina_g": 15,
+            "fibra_g": 0
+          }
         }
       ],
       "total": {
-        "kcal": 1182,
-        "proteina_g": 100.2,
+        "kcal": 1309,
+        "proteina_g": 115.2,
         "fibra_g": 8.8
       },
       "alvo": {
@@ -678,8 +698,8 @@
         "fibra_g": 30
       },
       "diferenca": {
-        "kcal": -968,
-        "proteina_g": -49.8
+        "kcal": -841,
+        "proteina_g": -34.8
       }
     }
   ]
