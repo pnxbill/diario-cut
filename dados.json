@@ -16,7 +16,7 @@
       "fibra_g": 30,
       "agua_ml": 3000
     },
-    "atualizado_em": "2026-08-14T13:32:27.194Z",
+    "atualizado_em": "2026-08-14T13:32:43.224Z",
     "dias_registrados": 4
   },
   "peso": {
@@ -570,12 +570,60 @@
       "tipo": "run",
       "peso_kg": 75.5,
       "agua_ml": 500,
-      "atualizado_em": "2026-08-14T10:14:40.657Z",
-      "refeicoes": [],
+      "atualizado_em": "2026-08-14T13:32:37.593Z",
+      "refeicoes": [
+        {
+          "refeicao": "cafe",
+          "label": "Café da manhã",
+          "itens": [
+            {
+              "nome": "Pão de queijo (1 un)",
+              "kcal": 90,
+              "proteina_g": 2,
+              "fibra_g": 0.3,
+              "emoji": "🧀",
+              "id": "Pão de queijo (1 un)",
+              "qtd": 1
+            },
+            {
+              "nome": "2× Ovo",
+              "kcal": 144,
+              "proteina_g": 12.6,
+              "fibra_g": 0,
+              "emoji": "🥚",
+              "id": "2× Ovo",
+              "qtd": 2
+            },
+            {
+              "nome": "Pão de forma (1 fatia)",
+              "kcal": 68,
+              "proteina_g": 2.3,
+              "fibra_g": 1,
+              "emoji": "🍞",
+              "id": "Pão de forma (1 fatia)",
+              "qtd": 1
+            },
+            {
+              "nome": "Mel (1 colher sopa)",
+              "kcal": 64,
+              "proteina_g": 0.1,
+              "fibra_g": 0,
+              "emoji": "🍯",
+              "id": "Mel (1 colher sopa)",
+              "qtd": 1
+            }
+          ],
+          "subtotal": {
+            "kcal": 366,
+            "proteina_g": 17,
+            "fibra_g": 1.3
+          }
+        }
+      ],
       "total": {
-        "kcal": 0,
-        "proteina_g": 0,
-        "fibra_g": 0
+        "kcal": 366,
+        "proteina_g": 17,
+        "fibra_g": 1.3
       },
       "alvo": {
         "kcal": 2150,
@@ -583,8 +631,8 @@
         "fibra_g": 30
       },
       "diferenca": {
-        "kcal": -2150,
-        "proteina_g": -150
+        "kcal": -1784,
+        "proteina_g": -133
       }
     }
   ]
