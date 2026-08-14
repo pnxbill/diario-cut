@@ -103,9 +103,12 @@ header{background:var(--pine);color:#F2F4EE;padding:calc(18px + env(safe-area-in
 .chip:active .m{color:rgba(255,255,255,.75)}
 
 .searchrow{display:flex;gap:7px;margin-bottom:11px}
-input[type=text],input[type=number],input[type=search],input[type=password],select{width:100%;padding:11px 12px;
+input[type=text],input[type=number],input[type=search],input[type=password],select,textarea{width:100%;padding:11px 12px;
   border:1px solid var(--line);border-radius:9px;font-family:'IBM Plex Sans',sans-serif;
   font-size:16px;background:#FCFDFB;color:var(--ink)}
+textarea{font-family:'IBM Plex Mono',monospace;font-size:13px;resize:vertical;display:block}
+code{font-family:'IBM Plex Mono',monospace;font-size:11.5px;background:#F6F8F3;
+  padding:1px 4px;border-radius:4px;border:1px solid var(--line)}
 .lib{max-height:340px;overflow-y:auto;-webkit-overflow-scrolling:touch}
 .lib:empty{display:none}
 .libgroup{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
@@ -271,9 +274,20 @@ details.cfg summary{cursor:pointer;font-family:'Space Grotesk',sans-serif;font-s
   </div>
 
   <div class="card">
-    <h2>Exportar para o Claude</h2>
+    <h2>Do Claude</h2>
+    <button class="wide" id="pColar">📋 Colar e aplicar</button>
+    <div style="height:9px"></div>
+    <textarea id="pTxt" rows="3" placeholder="…ou cole aqui na mão e toque em Aplicar"></textarea>
+    <div style="height:9px"></div>
+    <button class="wide ghost" id="pAplicar">Aplicar</button>
+    <p class="note">Aceita um patch do Claude, um <code>dados.json</code> inteiro ou um backup do app antigo —
+      ele reconhece sozinho. Sempre mostra o que vai mudar antes de gravar.</p>
+  </div>
+
+  <div class="card">
+    <h2>Exportar</h2>
     <button class="wide ghost" id="exp">Copiar resumo legível</button>
-    <p class="note">Só precisa disto se a sincronização estiver fora do ar. Normalmente é só me pedir — eu leio o JSON direto.</p>
+    <p class="note">Só precisa disto se a sincronização estiver fora do ar. Normalmente é só me pedir — eu leio o JSON direto do GitHub.</p>
   </div>
 
 </div>
@@ -924,6 +938,94 @@ $('fileIn').onchange=async e=>{
     toast('Carregado: '+n+' dia(s)');
   }catch(err){ toast('Arquivo inválido: '+err.message) }
   finally{ e.target.value='' }
+};
+
+/* ============================ patch do Claude ============================ */
+/* Formato:
+   { "patch":1, "nota":"...", "meta":{"alvos":{...}},
+     "dias":[{ "data":"2026-08-14", "tipo":"run", "peso_kg":75.2, "agua_ml":1500,
+               "limpar":["jantar"],
+               "remover":[{"refeicao":"lanche","nome":"Barra"}],
+               "add":{"jantar":[{"nome":"Sardinha","kcal":156,"proteina_g":19.4,"fibra_g":0,"emoji":"🐟"}]} }] }
+   Também aceita um dados.json inteiro (schema 2) ou um backup antigo (days{}). */
+function ehPatch(o){ return !!(o && (o.patch || (Array.isArray(o.dias) && o.dias.some(d=>d.add||d.remover||d.limpar)))) }
+
+function aplicarPatch(P){
+  const mudancas=[];
+  if(P.meta&&P.meta.alvos){
+    Object.assign(DB.meta.alvos,P.meta.alvos);
+    mudancas.push('metas: '+Object.entries(P.meta.alvos).map(([k,v])=>k+'='+v).join(', '));
+  }
+  (P.dias||[]).forEach(D=>{
+    if(!D||!D.data) return;
+    const d=dia(D.data);
+    const eventos=[];
+    (D.limpar||[]).forEach(sl=>{
+      if(d.slots[sl]&&d.slots[sl].length){ eventos.push('limpou '+sl+' ('+d.slots[sl].length+')'); d.slots[sl]=[]; }
+    });
+    (D.remover||[]).forEach(R=>{
+      const sl=R.refeicao, alvo=String(R.nome||'').toLowerCase();
+      if(!sl||!d.slots[sl]) return;
+      const antes=d.slots[sl].length;
+      d.slots[sl]=d.slots[sl].filter(m=>!String(m.n).toLowerCase().includes(alvo));
+      if(antes!==d.slots[sl].length) eventos.push('−'+(antes-d.slots[sl].length)+' em '+sl);
+    });
+    Object.entries(D.add||{}).forEach(([sl,itens])=>{
+      if(!d.slots[sl]) return;
+      (itens||[]).forEach(it=>{
+        if(!it||!it.nome) return;
+        d.slots[sl].push({n:String(it.nome),k:num(it.kcal),p:num(it.proteina_g),f:num(it.fibra_g),
+          i:it.emoji||iconFor(it.nome),id:it.id||String(it.nome),q:num(it.qtd)||1});
+      });
+      if((itens||[]).length) eventos.push('+'+itens.length+' em '+sl);
+    });
+    if(D.tipo==='run'||D.tipo==='rest'){ if(d.tipo!==D.tipo){d.tipo=D.tipo;eventos.push('tipo='+D.tipo)} }
+    if(D.peso_kg!=null){ d.peso_kg=r1(num(D.peso_kg)); eventos.push('peso '+d.peso_kg) }
+    if(D.agua_ml!=null){ d.agua_ml=num(D.agua_ml); eventos.push('água '+d.agua_ml) }
+    if(eventos.length){ tocar(D.data); mudancas.push(D.data+': '+eventos.join(', ')) }
+  });
+  return mudancas;
+}
+
+async function processarColado(raw){
+  raw=String(raw||'').trim();
+  if(!raw){ toast('Nada para aplicar'); return }
+  // tolera blocos de código markdown
+  raw=raw.replace(/^```[a-z]*\s*/i,'').replace(/```\s*$/,'').trim();
+  let o;
+  try{ o=JSON.parse(raw) }catch(e){ toast('JSON inválido: '+e.message); return }
+
+  if(ehPatch(o)){
+    const mudancas=aplicarPatch(o);
+    if(!mudancas.length){ toast('O patch não mudou nada'); return }
+    if(!confirm('Aplicar?\n\n'+mudancas.join('\n'))){ toast('Cancelado'); return }
+    salvarLocal(); render(); agendarPush();
+    toast((o.nota||'Aplicado')+' ✓');
+    $('pTxt').value='';
+    return;
+  }
+
+  const novo=desserializar(o);
+  if(!novo){ toast('Não reconheci o formato'); return }
+  const n=Object.keys(novo.dias).length;
+  if(!confirm('Carregar '+n+' dia(s)? Onde houver conflito, vence o registro mais recente.')){ toast('Cancelado'); return }
+  DB=mesclar(DB,novo);
+  salvarLocal(); render(); agendarPush();
+  toast('Carregado: '+n+' dia(s)');
+  $('pTxt').value='';
+}
+
+$('pAplicar').onclick=()=>processarColado($('pTxt').value);
+$('pColar').onclick=async()=>{
+  try{
+    const t=await navigator.clipboard.readText();
+    if(!t){ toast('Área de transferência vazia'); return }
+    $('pTxt').value=t;
+    await processarColado(t);
+  }catch(e){
+    $('pTxt').focus();
+    toast('Não consegui ler o clipboard — cole no campo abaixo');
+  }
 };
 
 $('cfgModo').onchange=()=>{
