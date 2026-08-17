@@ -16,8 +16,8 @@
       "fibra_g": 30,
       "agua_ml": 3000
     },
-    "atualizado_em": "2026-08-15T21:18:04.067Z",
-    "dias_registrados": 5
+    "atualizado_em": "2026-08-17T12:47:55.520Z",
+    "dias_registrados": 6
   },
   "peso": {
     "serie": [
@@ -817,6 +817,28 @@
       "diferenca": {
         "kcal": -1737,
         "proteina_g": -128
+      }
+    },
+    {
+      "data": "2026-08-17",
+      "tipo": "run",
+      "peso_kg": null,
+      "agua_ml": 0,
+      "atualizado_em": "2026-08-17T12:47:55.164Z",
+      "refeicoes": [],
+      "total": {
+        "kcal": 0,
+        "proteina_g": 0,
+        "fibra_g": 0
+      },
+      "alvo": {
+        "kcal": 2150,
+        "proteina_g": 150,
+        "fibra_g": 30
+      },
+      "diferenca": {
+        "kcal": -2150,
+        "proteina_g": -150
       }
     }
   ]
