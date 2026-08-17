@@ -16,8 +16,8 @@
       "fibra_g": 30,
       "agua_ml": 3000
     },
-    "atualizado_em": "2026-08-17T23:47:58.625Z",
-    "dias_registrados": 7,
+    "atualizado_em": "2026-08-17T23:53:43.791Z",
+    "dias_registrados": 8,
     "rapidos": [
       [
         "Ovo",
@@ -1564,6 +1564,28 @@
       "diferenca": {
         "kcal": -150,
         "proteina_g": 5.2
+      }
+    },
+    {
+      "data": "2026-08-18",
+      "tipo": "run",
+      "peso_kg": null,
+      "agua_ml": 0,
+      "atualizado_em": "2026-08-17T23:48:06.395Z",
+      "refeicoes": [],
+      "total": {
+        "kcal": 0,
+        "proteina_g": 0,
+        "fibra_g": 0
+      },
+      "alvo": {
+        "kcal": 2150,
+        "proteina_g": 150,
+        "fibra_g": 30
+      },
+      "diferenca": {
+        "kcal": -2150,
+        "proteina_g": -150
       }
     }
   ]
