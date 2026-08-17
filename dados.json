@@ -16,7 +16,7 @@
       "fibra_g": 30,
       "agua_ml": 3000
     },
-    "atualizado_em": "2026-08-17T20:21:54.413Z",
+    "atualizado_em": "2026-08-17T20:22:14.891Z",
     "dias_registrados": 7
   },
   "peso": {
@@ -846,7 +846,7 @@
       "tipo": "run",
       "peso_kg": null,
       "agua_ml": 1500,
-      "atualizado_em": "2026-08-17T20:21:51.538Z",
+      "atualizado_em": "2026-08-17T20:22:11.938Z",
       "refeicoes": [
         {
           "refeicao": "cafe",
@@ -945,19 +945,28 @@
               "emoji": "🥛",
               "id": "Whey Soldiers|",
               "qtd": 1
+            },
+            {
+              "nome": "Banana madura (1 média)",
+              "kcal": 105,
+              "proteina_g": 1.3,
+              "fibra_g": 3.1,
+              "emoji": "🍌",
+              "id": "Banana madura|1 média",
+              "qtd": 1
             }
           ],
           "subtotal": {
-            "kcal": 217,
-            "proteina_g": 28,
-            "fibra_g": 0
+            "kcal": 322,
+            "proteina_g": 29.3,
+            "fibra_g": 3.1
           }
         }
       ],
       "total": {
-        "kcal": 1354,
-        "proteina_g": 116,
-        "fibra_g": 8.4
+        "kcal": 1459,
+        "proteina_g": 117.3,
+        "fibra_g": 11.5
       },
       "alvo": {
         "kcal": 2150,
@@ -965,8 +974,8 @@
         "fibra_g": 30
       },
       "diferenca": {
-        "kcal": -796,
-        "proteina_g": -34
+        "kcal": -691,
+        "proteina_g": -32.7
       }
     }
   ]
