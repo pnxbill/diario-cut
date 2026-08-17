@@ -16,8 +16,554 @@
       "fibra_g": 30,
       "agua_ml": 3000
     },
-    "atualizado_em": "2026-08-17T21:17:23.307Z",
-    "dias_registrados": 7
+    "atualizado_em": "2026-08-17T21:17:29.730Z",
+    "dias_registrados": 7,
+    "rapidos": [
+      [
+        "Ovo",
+        "1 un",
+        72,
+        6.3,
+        "🥚",
+        0
+      ],
+      [
+        "Pão de forma",
+        "1 fatia",
+        68,
+        2.3,
+        "🍞",
+        1
+      ],
+      [
+        "Banana madura",
+        "1 média",
+        105,
+        1.3,
+        "🍌",
+        3.1
+      ],
+      [
+        "Aveia",
+        "30 g (3 colheres)",
+        116,
+        4.8,
+        "🥣",
+        2.9
+      ],
+      [
+        "Laranja",
+        "1 média",
+        62,
+        1.2,
+        "🍊",
+        3.1
+      ],
+      [
+        "Mexerica",
+        "1 média",
+        53,
+        0.8,
+        "🍊",
+        1.8
+      ],
+      [
+        "Mamão",
+        "150 g",
+        65,
+        0.7,
+        "🥭",
+        2.6
+      ],
+      [
+        "Frango",
+        "100 g",
+        165,
+        31,
+        "🍗",
+        0
+      ],
+      [
+        "Patinho moído",
+        "100 g",
+        170,
+        27,
+        "🥩",
+        0
+      ],
+      [
+        "Arroz",
+        "1 colher",
+        58,
+        1.2,
+        "🍚",
+        0.3
+      ],
+      [
+        "Feijão",
+        "1 concha",
+        130,
+        8,
+        "🫘",
+        8
+      ],
+      [
+        "Legumes",
+        "1 porção",
+        110,
+        4,
+        "🥗",
+        7
+      ],
+      [
+        "Whey",
+        "1 scoop",
+        120,
+        24,
+        "🥛",
+        0
+      ],
+      [
+        "Verde Campo",
+        "1 copo 200 g",
+        102,
+        12,
+        "🥤",
+        0
+      ],
+      [
+        "Psyllium",
+        "1 scoop",
+        18,
+        0.1,
+        "🥄",
+        4
+      ],
+      [
+        "Azeite",
+        "1 colher",
+        120,
+        0,
+        "🫒",
+        0
+      ],
+      [
+        "Whey Soldiers",
+        "1 dose",
+        217,
+        28,
+        "🥛",
+        0
+      ]
+    ],
+    "biblioteca": [
+      [
+        "Proteínas",
+        [
+          [
+            "Ovo",
+            "1 un",
+            72,
+            6.3,
+            "🥚",
+            0
+          ],
+          [
+            "Peito de frango grelhado",
+            "100 g",
+            165,
+            31,
+            "🍗",
+            0
+          ],
+          [
+            "Patinho moído",
+            "100 g",
+            170,
+            27,
+            "🥩",
+            0
+          ],
+          [
+            "Acém moído",
+            "100 g",
+            250,
+            22,
+            "🥩",
+            0
+          ],
+          [
+            "Tilápia",
+            "100 g",
+            128,
+            26,
+            "🐟",
+            0
+          ],
+          [
+            "Sardinha em lata",
+            "1 lata ~120 g",
+            156,
+            19.4,
+            "🐟",
+            0
+          ],
+          [
+            "Atum em água",
+            "1 lata",
+            130,
+            28,
+            "🐟",
+            0
+          ],
+          [
+            "Whey",
+            "1 scoop",
+            120,
+            24,
+            "🥛",
+            0
+          ],
+          [
+            "Nutren Protein",
+            "1 garrafa 260 ml",
+            114,
+            15,
+            "🧋",
+            0
+          ],
+          [
+            "Verde Campo Natural Whey",
+            "1 copo 200 g",
+            102,
+            12,
+            "🥤",
+            0
+          ],
+          [
+            "Iogurte natural",
+            "170 g",
+            87,
+            6,
+            "🥛",
+            0
+          ],
+          [
+            "Iogurte grego coado",
+            "100 g",
+            100,
+            10,
+            "🥛",
+            0
+          ],
+          [
+            "Queijo minas frescal",
+            "50 g",
+            130,
+            9,
+            "🧀",
+            0
+          ],
+          [
+            "Feijão cozido",
+            "1 concha",
+            130,
+            8,
+            "🫘",
+            8
+          ],
+          [
+            "Whey Soldiers",
+            "1 dose",
+            217,
+            28,
+            "🥛",
+            0
+          ]
+        ]
+      ],
+      [
+        "Carboidratos",
+        [
+          [
+            "Arroz branco",
+            "1 colher",
+            58,
+            1.2,
+            "🍚",
+            0.3
+          ],
+          [
+            "Batata doce",
+            "100 g",
+            77,
+            1.4,
+            "🍠",
+            3
+          ],
+          [
+            "Mandioquinha / batata baroa",
+            "100 g",
+            101,
+            1,
+            "🥔",
+            2
+          ],
+          [
+            "Aipim cozido",
+            "100 g",
+            125,
+            0.6,
+            "🥔",
+            1.6
+          ],
+          [
+            "Pão francês",
+            "1 un",
+            135,
+            4,
+            "🥖",
+            1.2
+          ],
+          [
+            "Pão de forma",
+            "1 fatia",
+            68,
+            2.3,
+            "🍞",
+            1
+          ],
+          [
+            "Tapioca (goma)",
+            "60 g",
+            160,
+            0,
+            "🫓",
+            0
+          ],
+          [
+            "Cuscuz de milho",
+            "100 g",
+            113,
+            2.2,
+            "🌽",
+            1.5
+          ],
+          [
+            "Aveia",
+            "30 g (3 colheres)",
+            116,
+            4.8,
+            "🥣",
+            2.9
+          ]
+        ]
+      ],
+      [
+        "Frutas",
+        [
+          [
+            "Banana madura",
+            "1 média",
+            105,
+            1.3,
+            "🍌",
+            3.1
+          ],
+          [
+            "Laranja",
+            "1 média",
+            62,
+            1.2,
+            "🍊",
+            3.1
+          ],
+          [
+            "Mexerica",
+            "1 média",
+            53,
+            0.8,
+            "🍊",
+            1.8
+          ],
+          [
+            "Mamão",
+            "150 g",
+            65,
+            0.7,
+            "🥭",
+            2.6
+          ],
+          [
+            "Kiwi",
+            "2 un",
+            84,
+            1.6,
+            "🥝",
+            4.1
+          ],
+          [
+            "Ameixa seca",
+            "5 un",
+            115,
+            1,
+            "🍑",
+            3.5
+          ],
+          [
+            "Fruta (genérica)",
+            "1 un",
+            75,
+            1,
+            "🍎",
+            2
+          ]
+        ]
+      ],
+      [
+        "Legumes e verduras",
+        [
+          [
+            "Salada verde",
+            "1 prato",
+            35,
+            2,
+            "🥗",
+            2
+          ],
+          [
+            "Brócolis cozido",
+            "100 g",
+            35,
+            2.4,
+            "🥦",
+            2.6
+          ],
+          [
+            "Cenoura cozida",
+            "100 g",
+            35,
+            0.8,
+            "🥕",
+            2.8
+          ],
+          [
+            "Beterraba cozida",
+            "100 g",
+            44,
+            1.6,
+            "🍠",
+            2
+          ],
+          [
+            "Abobrinha refogada",
+            "100 g",
+            40,
+            1.2,
+            "🥒",
+            1.1
+          ],
+          [
+            "Couve refogada",
+            "100 g",
+            90,
+            3,
+            "🥬",
+            3.1
+          ]
+        ]
+      ],
+      [
+        "Suplementos",
+        [
+          [
+            "Psyllium em flocos",
+            "1 scoop (~5 g)",
+            18,
+            0.1,
+            "🥄",
+            4
+          ]
+        ]
+      ],
+      [
+        "Cuidado",
+        [
+          [
+            "Azeite / óleo",
+            "1 colher",
+            120,
+            0,
+            "🫒",
+            0
+          ],
+          [
+            "Açaí com granola",
+            "300 ml",
+            560,
+            5,
+            "🍧",
+            3
+          ],
+          [
+            "Cerveja",
+            "1 lata",
+            145,
+            1.5,
+            "🍺",
+            0
+          ],
+          [
+            "Pão de queijo",
+            "1 un",
+            90,
+            2,
+            "🧀",
+            0.3
+          ],
+          [
+            "Requeijão",
+            "1 colher",
+            55,
+            1.5,
+            "🧈",
+            0
+          ],
+          [
+            "Castanha do Pará",
+            "3 un",
+            100,
+            2,
+            "🌰",
+            1.1
+          ],
+          [
+            "Barra de cereal",
+            "1 barra 22 g",
+            84,
+            1,
+            "🍫",
+            0.6
+          ],
+          [
+            "Mel",
+            "1 colher sopa (21 g)",
+            64,
+            0.1,
+            "🍯",
+            0
+          ],
+          [
+            "Refrigerante",
+            "350 ml",
+            140,
+            0,
+            "🥤",
+            0
+          ]
+        ]
+      ]
+    ]
   },
   "peso": {
     "serie": [
