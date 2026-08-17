@@ -950,11 +950,59 @@ $('fileIn').onchange=async e=>{
    Também aceita um dados.json inteiro (schema 2) ou um backup antigo (days{}). */
 function ehPatch(o){ return !!(o && (o.patch || (Array.isArray(o.dias) && o.dias.some(d=>d.add||d.remover||d.limpar)))) }
 
+/* {nome,unidade,kcal,proteina_g,fibra_g,emoji} -> linha interna [n,u,k,p,emoji,fibra] */
+function paraLinha(o){
+  if(Array.isArray(o)) return o;
+  return [String(o.nome||''),String(o.unidade||''),num(o.kcal),num(o.proteina_g),
+          o.emoji||iconFor(o.nome),num(o.fibra_g)];
+}
+function listaRapidos(){
+  if(!Array.isArray(DB.meta.rapidos)||!DB.meta.rapidos.length) DB.meta.rapidos=clone(QUICK_PADRAO);
+  return DB.meta.rapidos;
+}
+function listaBiblioteca(){
+  if(!Array.isArray(DB.meta.biblioteca)||!DB.meta.biblioteca.length) DB.meta.biblioteca=clone(LIB_PADRAO);
+  return DB.meta.biblioteca;
+}
+const mesmoNome=(a,b)=>String(a).trim().toLowerCase()===String(b).trim().toLowerCase();
+
 function aplicarPatch(P){
   const mudancas=[];
-  if(P.meta&&P.meta.alvos){
-    Object.assign(DB.meta.alvos,P.meta.alvos);
-    mudancas.push('metas: '+Object.entries(P.meta.alvos).map(([k,v])=>k+'='+v).join(', '));
+  const M=P.meta||{};
+
+  if(M.alvos){
+    Object.assign(DB.meta.alvos,M.alvos);
+    mudancas.push('metas: '+Object.entries(M.alvos).map(([k,v])=>k+'='+v).join(', '));
+  }
+  if(Array.isArray(M.rapidos)){
+    DB.meta.rapidos=M.rapidos.map(paraLinha);
+    mudancas.push('atalhos substituídos ('+DB.meta.rapidos.length+')');
+  }
+  if(Array.isArray(M.rapidos_add)){
+    const L=listaRapidos(); let n=0;
+    M.rapidos_add.forEach(o=>{
+      const linha=paraLinha(o);
+      if(!linha[0]) return;
+      if(!L.some(x=>mesmoNome(x[0],linha[0]))){ L.push(linha); n++ }
+    });
+    if(n) mudancas.push('+'+n+' atalho(s) rápido(s)');
+  }
+  if(Array.isArray(M.rapidos_remove)){
+    const L=listaRapidos(), antes=L.length;
+    DB.meta.rapidos=L.filter(x=>!M.rapidos_remove.some(nm=>String(x[0]).toLowerCase().includes(String(nm).toLowerCase())));
+    if(DB.meta.rapidos.length!==antes) mudancas.push('−'+(antes-DB.meta.rapidos.length)+' atalho(s)');
+  }
+  if(Array.isArray(M.biblioteca_add)){
+    const B=listaBiblioteca(); let n=0;
+    M.biblioteca_add.forEach(o=>{
+      const linha=paraLinha(o);
+      if(!linha[0]) return;
+      const grupo=o.grupo||'Outros';
+      let g=B.find(par=>mesmoNome(par[0],grupo));
+      if(!g){ g=[grupo,[]]; B.push(g) }
+      if(!g[1].some(x=>mesmoNome(x[0],linha[0]))){ g[1].push(linha); n++ }
+    });
+    if(n) mudancas.push('+'+n+' na biblioteca');
   }
   (P.dias||[]).forEach(D=>{
     if(!D||!D.data) return;
