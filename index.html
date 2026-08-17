@@ -298,7 +298,13 @@ details.cfg summary{cursor:pointer;font-family:'Space Grotesk',sans-serif;font-s
 'use strict';
 
 /* ============================ constantes ============================ */
+const VERSAO='v5 · 17/08';
 const LS_DADOS='diario-cut-dados-v4', LS_CFG='diario-cut-cfg-v1';
+/* Carimbo de um dia que existe mas nunca foi tocado pelo usuário.
+   Tem de perder QUALQUER merge — senão um aparelho novo, com armazenamento
+   vazio, cria o dia de hoje em branco com a hora atual e apaga o que está
+   no GitHub. Foi exatamente isso que aconteceu em 17/08/2026. */
+const NUNCA='1970-01-01T00:00:00.000Z';
 const SLOTS=[
   ['cafe','Café da manhã','🌅'],
   ['almoco','Almoço','🍽️'],
@@ -451,7 +457,7 @@ function libAtual(){return Array.isArray(DB.meta.biblioteca)&&DB.meta.biblioteca
 function quickAtual(){return Array.isArray(DB.meta.rapidos)&&DB.meta.rapidos.length?DB.meta.rapidos:QUICK_PADRAO}
 
 function dia(s){
-  if(!DB.dias[s]) DB.dias[s]={tipo:'run',peso_kg:null,agua_ml:0,slots:vazio(),_ts:agora()};
+  if(!DB.dias[s]) DB.dias[s]={tipo:'run',peso_kg:null,agua_ml:0,slots:vazio(),_ts:NUNCA};
   const d=DB.dias[s];
   if(!d.slots) d.slots=vazio();
   SLOTS.forEach(([id])=>{ if(!Array.isArray(d.slots[id])) d.slots[id]=[] });
@@ -683,7 +689,7 @@ function pintarSync(){
   el.className='sync '+(mapa[SYNC.estado]||'');
   const curto={ok:'✓ '+(SYNC.ultimo||''),pendente:'⏳ pendente',erro:'⚠ erro',off:'local',ocupado:'…'}[SYNC.estado]||'';
   el.textContent=curto;
-  if(det) det.textContent=SYNC.msg, det.classList.toggle('bad',SYNC.estado==='erro');
+  if(det) det.textContent=SYNC.msg+'  ·  '+VERSAO, det.classList.toggle('bad',SYNC.estado==='erro');
 }
 function setSync(estado,msg){
   SYNC.estado=estado; SYNC.msg=msg;
@@ -700,6 +706,12 @@ function agendarPush(){
   timerPush=setTimeout(()=>{sincronizar(false)},2500);
 }
 
+function contarItens(estado){
+  let n=0;
+  Object.values(estado.dias||{}).forEach(d=>SLOTS.forEach(([id])=>n+=((d.slots||{})[id]||[]).length));
+  return n;
+}
+
 let sincronizando=false;
 async function sincronizar(manual){
   if(!cfgPronta()){ setSync('off','Sem sincronização. Configure o GitHub abaixo.'); return }
@@ -708,12 +720,25 @@ async function sincronizar(manual){
   setSync('ocupado','Sincronizando…');
   try{
     const rem=await lerRemoto();
+    let nRemoto=null;
     if(rem&&rem.doc){
       const remoto=desserializar(rem.doc);
-      if(remoto) DB=mesclar(DB,remoto);
+      if(remoto){ nRemoto=contarItens(remoto); DB=mesclar(DB,remoto); }
       SYNC.sha=rem.sha;
     }
     render();
+    /* Trava de segurança: nunca gravar por cima do GitHub um estado com menos
+       itens do que o que está lá, sem perguntar. Apagar é legítimo, mas tem de
+       ser uma escolha consciente. */
+    if(nRemoto!=null && CFG.token){
+      const perda=nRemoto-contarItens(DB);
+      if(perda>0 && !confirm('Atenção: enviar agora apaga '+perda+' item(ns) que estão salvos no GitHub.\n\nSe você não apagou nada de propósito, toque em Cancelar — os dados no GitHub continuam intactos.')){
+        setSync('pendente','Envio cancelado. O GitHub continua com a versão completa.');
+        toast('Envio cancelado');
+        sincronizando=false;
+        return;
+      }
+    }
     if(CFG.token){
       const doc=serializar();
       const novaSha=await gravarRemoto(doc,SYNC.sha);
@@ -1127,7 +1152,11 @@ async function iniciar(){
   carregarCfg(); preencherCfgUI();
   const local=carregarLocal();
   if(local) DB=local;
-  desenharQuick(); desenharLib(''); render();
+  desenharQuick(); desenharLib('');
+  /* Sincroniza ANTES do primeiro render. render() chama dia(hoje), que cria o
+     dia caso não exista; num aparelho novo isso fabricava um dia vazio antes de
+     o remoto chegar. Com _ts=NUNCA ele já perderia o merge, mas não criar é
+     melhor ainda. */
   if(cfgPronta()) await sincronizar(false);
   else setSync('off','Sem sincronização. Configure o GitHub abaixo.');
   render();
