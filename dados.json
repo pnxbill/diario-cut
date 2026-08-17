@@ -16,7 +16,7 @@
       "fibra_g": 30,
       "agua_ml": 3000
     },
-    "atualizado_em": "2026-08-17T23:54:23.349Z",
+    "atualizado_em": "2026-08-17T23:54:34.714Z",
     "dias_registrados": 8,
     "rapidos": [
       [
@@ -1396,7 +1396,7 @@
       "tipo": "run",
       "peso_kg": 76.7,
       "agua_ml": 2000,
-      "atualizado_em": "2026-08-17T23:54:20.288Z",
+      "atualizado_em": "2026-08-17T23:54:31.702Z",
       "refeicoes": [
         {
           "refeicao": "cafe",
@@ -1504,21 +1504,12 @@
               "emoji": "🍌",
               "id": "2× Banana madura (1 média)",
               "qtd": 2
-            },
-            {
-              "nome": "Aveia (30 g (3 colheres))",
-              "kcal": 116,
-              "proteina_g": 4.8,
-              "fibra_g": 2.9,
-              "emoji": "🥣",
-              "id": "Aveia|30 g (3 colheres)",
-              "qtd": 1
             }
           ],
           "subtotal": {
-            "kcal": 543,
-            "proteina_g": 35.4,
-            "fibra_g": 9.1
+            "kcal": 427,
+            "proteina_g": 30.6,
+            "fibra_g": 6.2
           }
         },
         {
@@ -1561,9 +1552,9 @@
         }
       ],
       "total": {
-        "kcal": 2116,
-        "proteina_g": 160,
-        "fibra_g": 19.5
+        "kcal": 2000,
+        "proteina_g": 155.2,
+        "fibra_g": 16.6
       },
       "alvo": {
         "kcal": 2150,
@@ -1571,8 +1562,8 @@
         "fibra_g": 30
       },
       "diferenca": {
-        "kcal": -34,
-        "proteina_g": 10
+        "kcal": -150,
+        "proteina_g": 5.2
       }
     },
     {
