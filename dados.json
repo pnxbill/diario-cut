@@ -16,7 +16,7 @@
       "fibra_g": 30,
       "agua_ml": 3000
     },
-    "atualizado_em": "2026-08-17T23:47:03.159Z",
+    "atualizado_em": "2026-08-17T23:47:12.240Z",
     "dias_registrados": 7,
     "rapidos": [
       [
@@ -1392,7 +1392,7 @@
       "tipo": "run",
       "peso_kg": null,
       "agua_ml": 1500,
-      "atualizado_em": "2026-08-17T22:02:26.619Z",
+      "atualizado_em": "2026-08-17T23:47:07.247Z",
       "refeicoes": [
         {
           "refeicao": "cafe",
@@ -1507,12 +1507,50 @@
             "proteina_g": 30.6,
             "fibra_g": 6.2
           }
+        },
+        {
+          "refeicao": "jantar",
+          "label": "Jantar",
+          "itens": [
+            {
+              "nome": "Sardinha em lata (lata inteira ~120 g)",
+              "kcal": 156,
+              "proteina_g": 19.4,
+              "fibra_g": 0,
+              "emoji": "🐟",
+              "id": "Sardinha em lata (lata inteira ~120 g)",
+              "qtd": 1
+            },
+            {
+              "nome": "2× Pão de forma (1 fatia)",
+              "kcal": 136,
+              "proteina_g": 4.6,
+              "fibra_g": 2,
+              "emoji": "🍞",
+              "id": "2× Pão de forma (1 fatia)",
+              "qtd": 2
+            },
+            {
+              "nome": "2× Ovo cozido",
+              "kcal": 144,
+              "proteina_g": 12.6,
+              "fibra_g": 0,
+              "emoji": "🥚",
+              "id": "2× Ovo cozido",
+              "qtd": 2
+            }
+          ],
+          "subtotal": {
+            "kcal": 436,
+            "proteina_g": 36.6,
+            "fibra_g": 2
+          }
         }
       ],
       "total": {
-        "kcal": 1564,
-        "proteina_g": 118.6,
-        "fibra_g": 14.6
+        "kcal": 2000,
+        "proteina_g": 155.2,
+        "fibra_g": 16.6
       },
       "alvo": {
         "kcal": 2150,
@@ -1520,8 +1558,8 @@
         "fibra_g": 30
       },
       "diferenca": {
-        "kcal": -586,
-        "proteina_g": -31.4
+        "kcal": -150,
+        "proteina_g": 5.2
       }
     }
   ]
