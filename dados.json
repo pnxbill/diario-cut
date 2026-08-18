@@ -16,7 +16,7 @@
       "fibra_g": 30,
       "agua_ml": 3000
     },
-    "atualizado_em": "2026-08-18T22:50:04.931Z",
+    "atualizado_em": "2026-08-18T22:50:16.246Z",
     "dias_registrados": 10,
     "rapidos": [
       [
@@ -26,14 +26,6 @@
         6.3,
         "🥚",
         0
-      ],
-      [
-        "Pão de forma",
-        "1 fatia",
-        68,
-        2.3,
-        "🍞",
-        1
       ],
       [
         "Banana madura",
@@ -178,6 +170,14 @@
         0.6,
         "🍐",
         5.5
+      ],
+      [
+        "Pão de forma integral",
+        "1 fatia",
+        68,
+        3,
+        "🍞",
+        2.2
       ]
     ],
     "biblioteca": [
@@ -350,14 +350,6 @@
             1.2
           ],
           [
-            "Pão de forma",
-            "1 fatia",
-            68,
-            2.3,
-            "🍞",
-            1
-          ],
-          [
             "Tapioca (goma)",
             "60 g",
             160,
@@ -380,6 +372,14 @@
             4.8,
             "🥣",
             2.9
+          ],
+          [
+            "Pão de forma integral",
+            "1 fatia",
+            68,
+            3,
+            "🍞",
+            2.2
           ]
         ]
       ],
@@ -641,7 +641,7 @@
       "tipo": "run",
       "peso_kg": 76.4,
       "agua_ml": 2500,
-      "atualizado_em": "2026-08-13T23:04:13.003Z",
+      "atualizado_em": "2026-08-18T22:50:11.305Z",
       "refeicoes": [
         {
           "refeicao": "cafe",
@@ -655,15 +655,6 @@
               "emoji": "🥚",
               "id": "d1-ovo3",
               "qtd": 3
-            },
-            {
-              "nome": "Pão de forma (1 fatia)",
-              "kcal": 68,
-              "proteina_g": 2.3,
-              "fibra_g": 1,
-              "emoji": "🍞",
-              "id": "d1-pao",
-              "qtd": 1
             },
             {
               "nome": "Banana (1 média)",
@@ -682,12 +673,21 @@
               "emoji": "☕",
               "id": "d1-cafe",
               "qtd": 1
+            },
+            {
+              "nome": "Pão de forma integral (1 fatia)",
+              "kcal": 68,
+              "proteina_g": 3,
+              "fibra_g": 2.2,
+              "emoji": "🍞",
+              "id": "Pão de forma integral (1 fatia)",
+              "qtd": 1
             }
           ],
           "subtotal": {
             "kcal": 389,
-            "proteina_g": 22.5,
-            "fibra_g": 4.1
+            "proteina_g": 23.2,
+            "fibra_g": 5.3
           }
         },
         {
@@ -760,8 +760,8 @@
       ],
       "total": {
         "kcal": 1146,
-        "proteina_g": 88.7,
-        "fibra_g": 13.5
+        "proteina_g": 89.4,
+        "fibra_g": 14.7
       },
       "alvo": {
         "kcal": 2150,
@@ -770,7 +770,7 @@
       },
       "diferenca": {
         "kcal": -1004,
-        "proteina_g": -61.3
+        "proteina_g": -60.6
       }
     },
     {
@@ -778,7 +778,7 @@
       "tipo": "run",
       "peso_kg": 75.6,
       "agua_ml": 2500,
-      "atualizado_em": "2026-08-13T23:04:07.984Z",
+      "atualizado_em": "2026-08-18T22:50:11.305Z",
       "refeicoes": [
         {
           "refeicao": "cafe",
@@ -794,15 +794,6 @@
               "qtd": 3
             },
             {
-              "nome": "Pão de forma torrado (1 fatia)",
-              "kcal": 68,
-              "proteina_g": 2.3,
-              "fibra_g": 1,
-              "emoji": "🍞",
-              "id": "d2-pao",
-              "qtd": 1
-            },
-            {
               "nome": "Verde Campo Natural Whey (~170 g)",
               "kcal": 87,
               "proteina_g": 10.2,
@@ -810,12 +801,21 @@
               "emoji": "🥤",
               "id": "d2-vc170",
               "qtd": 1
+            },
+            {
+              "nome": "Pão de forma integral torrado (1 fatia)",
+              "kcal": 68,
+              "proteina_g": 3,
+              "fibra_g": 2.2,
+              "emoji": "🍞",
+              "id": "Pão de forma integral torrado (1 fatia)",
+              "qtd": 1
             }
           ],
           "subtotal": {
             "kcal": 371,
-            "proteina_g": 31.4,
-            "fibra_g": 1
+            "proteina_g": 32.1,
+            "fibra_g": 2.2
           }
         },
         {
@@ -917,15 +917,6 @@
               "qtd": 1
             },
             {
-              "nome": "2× Pão de forma (1 fatia)",
-              "kcal": 136,
-              "proteina_g": 4.6,
-              "fibra_g": 2,
-              "emoji": "🍞",
-              "id": "d2-pao2",
-              "qtd": 2
-            },
-            {
               "nome": "2× Ovo cozido",
               "kcal": 144,
               "proteina_g": 12.6,
@@ -933,19 +924,28 @@
               "emoji": "🥚",
               "id": "d2-ovo2",
               "qtd": 2
+            },
+            {
+              "nome": "2× Pão de forma integral (1 fatia)",
+              "kcal": 136,
+              "proteina_g": 6,
+              "fibra_g": 4.4,
+              "emoji": "🍞",
+              "id": "2× Pão de forma integral (1 fatia)",
+              "qtd": 2
             }
           ],
           "subtotal": {
             "kcal": 436,
-            "proteina_g": 36.6,
-            "fibra_g": 2
+            "proteina_g": 38,
+            "fibra_g": 4.4
           }
         }
       ],
       "total": {
         "kcal": 2133,
-        "proteina_g": 155.6,
-        "fibra_g": 25
+        "proteina_g": 157.7,
+        "fibra_g": 28.6
       },
       "alvo": {
         "kcal": 2150,
@@ -954,7 +954,7 @@
       },
       "diferenca": {
         "kcal": -17,
-        "proteina_g": 5.6
+        "proteina_g": 7.7
       }
     },
     {
@@ -962,7 +962,7 @@
       "tipo": "rest",
       "peso_kg": 75.6,
       "agua_ml": 2000,
-      "atualizado_em": "2026-08-13T23:00:37.000Z",
+      "atualizado_em": "2026-08-18T22:50:11.305Z",
       "refeicoes": [
         {
           "refeicao": "cafe",
@@ -976,15 +976,6 @@
               "emoji": "🥚",
               "id": "d3-ovo3",
               "qtd": 3
-            },
-            {
-              "nome": "Pão de forma (1 fatia)",
-              "kcal": 68,
-              "proteina_g": 2.3,
-              "fibra_g": 1,
-              "emoji": "🍞",
-              "id": "d3-pao",
-              "qtd": 1
             },
             {
               "nome": "Mel (1 colher sopa)",
@@ -1003,12 +994,21 @@
               "emoji": "☕",
               "id": "d3-cafe",
               "qtd": 1
+            },
+            {
+              "nome": "Pão de forma integral (1 fatia)",
+              "kcal": 68,
+              "proteina_g": 3,
+              "fibra_g": 2.2,
+              "emoji": "🍞",
+              "id": "Pão de forma integral (1 fatia)",
+              "qtd": 1
             }
           ],
           "subtotal": {
             "kcal": 348,
-            "proteina_g": 21.3,
-            "fibra_g": 1
+            "proteina_g": 22,
+            "fibra_g": 2.2
           }
         },
         {
@@ -1146,8 +1146,8 @@
       ],
       "total": {
         "kcal": 1916,
-        "proteina_g": 149,
-        "fibra_g": 26.2
+        "proteina_g": 149.7,
+        "fibra_g": 27.4
       },
       "alvo": {
         "kcal": 1900,
@@ -1156,7 +1156,7 @@
       },
       "diferenca": {
         "kcal": 16,
-        "proteina_g": -1
+        "proteina_g": -0.3
       }
     },
     {
@@ -1164,7 +1164,7 @@
       "tipo": "run",
       "peso_kg": 75.5,
       "agua_ml": 2500,
-      "atualizado_em": "2026-08-18T22:13:27.014Z",
+      "atualizado_em": "2026-08-18T22:50:11.305Z",
       "refeicoes": [
         {
           "refeicao": "cafe",
@@ -1187,15 +1187,6 @@
               "emoji": "🥚",
               "id": "2× Ovo",
               "qtd": 2
-            },
-            {
-              "nome": "Pão de forma (1 fatia)",
-              "kcal": 68,
-              "proteina_g": 2.3,
-              "fibra_g": 1,
-              "emoji": "🍞",
-              "id": "Pão de forma (1 fatia)",
-              "qtd": 1
             },
             {
               "nome": "Mel (1 colher sopa)",
@@ -1223,12 +1214,21 @@
               "emoji": "🥛",
               "id": "Leite desnatado sem lactose (200 ml)",
               "qtd": 1
+            },
+            {
+              "nome": "Pão de forma integral (1 fatia)",
+              "kcal": 68,
+              "proteina_g": 3,
+              "fibra_g": 2.2,
+              "emoji": "🍞",
+              "id": "Pão de forma integral (1 fatia)",
+              "qtd": 1
             }
           ],
           "subtotal": {
             "kcal": 547,
-            "proteina_g": 41,
-            "fibra_g": 2.3
+            "proteina_g": 41.7,
+            "fibra_g": 3.5
           }
         },
         {
@@ -1339,8 +1339,8 @@
       ],
       "total": {
         "kcal": 2130,
-        "proteina_g": 176,
-        "fibra_g": 19.4
+        "proteina_g": 176.7,
+        "fibra_g": 20.6
       },
       "alvo": {
         "kcal": 2150,
@@ -1349,7 +1349,7 @@
       },
       "diferenca": {
         "kcal": -20,
-        "proteina_g": 26
+        "proteina_g": 26.7
       }
     },
     {
@@ -1357,7 +1357,7 @@
       "tipo": "run",
       "peso_kg": null,
       "agua_ml": 2000,
-      "atualizado_em": "2026-08-18T22:35:50.953Z",
+      "atualizado_em": "2026-08-18T22:50:11.305Z",
       "refeicoes": [
         {
           "refeicao": "cafe",
@@ -1371,15 +1371,6 @@
               "emoji": "🥚",
               "id": "Ovo|1 un",
               "qtd": 3
-            },
-            {
-              "nome": "Pão de forma (1 fatia)",
-              "kcal": 68,
-              "proteina_g": 2.3,
-              "fibra_g": 1,
-              "emoji": "🍞",
-              "id": "Pão de forma|1 fatia",
-              "qtd": 1
             },
             {
               "nome": "Mamão (150 g)",
@@ -1398,12 +1389,21 @@
               "emoji": "🍯",
               "id": "Mel|1 colher sopa (21 g)",
               "qtd": 1
+            },
+            {
+              "nome": "Pão de forma integral (1 fatia)",
+              "kcal": 68,
+              "proteina_g": 3,
+              "fibra_g": 2.2,
+              "emoji": "🍞",
+              "id": "Pão de forma integral (1 fatia)",
+              "qtd": 1
             }
           ],
           "subtotal": {
             "kcal": 413,
-            "proteina_g": 22,
-            "fibra_g": 3.6
+            "proteina_g": 22.7,
+            "fibra_g": 4.8
           }
         },
         {
@@ -1429,8 +1429,8 @@
       ],
       "total": {
         "kcal": 2213,
-        "proteina_g": 77,
-        "fibra_g": 12.6
+        "proteina_g": 77.7,
+        "fibra_g": 13.8
       },
       "alvo": {
         "kcal": 2150,
@@ -1439,7 +1439,7 @@
       },
       "diferenca": {
         "kcal": 63,
-        "proteina_g": -73
+        "proteina_g": -72.3
       }
     },
     {
@@ -1510,21 +1510,12 @@
       "tipo": "run",
       "peso_kg": 76.7,
       "agua_ml": 2000,
-      "atualizado_em": "2026-08-18T22:13:27.014Z",
+      "atualizado_em": "2026-08-18T22:50:11.305Z",
       "refeicoes": [
         {
           "refeicao": "cafe",
           "label": "Café da manhã",
           "itens": [
-            {
-              "nome": "Pão de forma (1 fatia)",
-              "kcal": 68,
-              "proteina_g": 2.3,
-              "fibra_g": 1,
-              "emoji": "🍞",
-              "id": "Pão de forma (1 fatia)",
-              "qtd": 1
-            },
             {
               "nome": "3× Ovo (1 un)",
               "kcal": 216,
@@ -1569,12 +1560,21 @@
               "emoji": "🥛",
               "id": "Leite desnatado sem lactose (200 ml)",
               "qtd": 1
+            },
+            {
+              "nome": "Pão de forma integral (1 fatia)",
+              "kcal": 68,
+              "proteina_g": 3,
+              "fibra_g": 2.2,
+              "emoji": "🍞",
+              "id": "Pão de forma integral (1 fatia)",
+              "qtd": 1
             }
           ],
           "subtotal": {
             "kcal": 547,
-            "proteina_g": 45.4,
-            "fibra_g": 6
+            "proteina_g": 46.1,
+            "fibra_g": 7.2
           }
         },
         {
@@ -1658,15 +1658,6 @@
               "qtd": 1
             },
             {
-              "nome": "2× Pão de forma (1 fatia)",
-              "kcal": 136,
-              "proteina_g": 4.6,
-              "fibra_g": 2,
-              "emoji": "🍞",
-              "id": "2× Pão de forma (1 fatia)",
-              "qtd": 2
-            },
-            {
               "nome": "2× Ovo cozido",
               "kcal": 144,
               "proteina_g": 12.6,
@@ -1674,19 +1665,28 @@
               "emoji": "🥚",
               "id": "2× Ovo cozido",
               "qtd": 2
+            },
+            {
+              "nome": "2× Pão de forma integral (1 fatia)",
+              "kcal": 136,
+              "proteina_g": 6,
+              "fibra_g": 4.4,
+              "emoji": "🍞",
+              "id": "2× Pão de forma integral (1 fatia)",
+              "qtd": 2
             }
           ],
           "subtotal": {
             "kcal": 436,
-            "proteina_g": 36.6,
-            "fibra_g": 2
+            "proteina_g": 38,
+            "fibra_g": 4.4
           }
         }
       ],
       "total": {
         "kcal": 1928,
-        "proteina_g": 147.2,
-        "fibra_g": 18.6
+        "proteina_g": 149.3,
+        "fibra_g": 22.2
       },
       "alvo": {
         "kcal": 2150,
@@ -1695,7 +1695,7 @@
       },
       "diferenca": {
         "kcal": -222,
-        "proteina_g": -2.8
+        "proteina_g": -0.7
       }
     },
     {
@@ -1703,7 +1703,7 @@
       "tipo": "run",
       "peso_kg": 76,
       "agua_ml": 2000,
-      "atualizado_em": "2026-08-18T22:13:27.015Z",
+      "atualizado_em": "2026-08-18T22:50:11.305Z",
       "refeicoes": [
         {
           "refeicao": "cafe",
@@ -1717,15 +1717,6 @@
               "emoji": "🥚",
               "id": "Ovo|1 un",
               "qtd": 3
-            },
-            {
-              "nome": "Pão de forma (1 fatia)",
-              "kcal": 68,
-              "proteina_g": 2.3,
-              "fibra_g": 1,
-              "emoji": "🍞",
-              "id": "Pão de forma|1 fatia",
-              "qtd": 1
             },
             {
               "nome": "Whey Soldiers (1 dosador 30 g)",
@@ -1762,12 +1753,21 @@
               "emoji": "🥛",
               "id": "Leite desnatado sem lactose (200 ml)",
               "qtd": 1
+            },
+            {
+              "nome": "Pão de forma integral (1 fatia)",
+              "kcal": 68,
+              "proteina_g": 3,
+              "fibra_g": 2.2,
+              "emoji": "🍞",
+              "id": "Pão de forma integral (1 fatia)",
+              "qtd": 1
             }
           ],
           "subtotal": {
             "kcal": 547,
-            "proteina_g": 45.4,
-            "fibra_g": 6
+            "proteina_g": 46.1,
+            "fibra_g": 7.2
           }
         },
         {
@@ -1885,8 +1885,8 @@
       ],
       "total": {
         "kcal": 1827,
-        "proteina_g": 133.7,
-        "fibra_g": 26.9
+        "proteina_g": 134.4,
+        "fibra_g": 28.1
       },
       "alvo": {
         "kcal": 2150,
@@ -1895,7 +1895,7 @@
       },
       "diferenca": {
         "kcal": -323,
-        "proteina_g": -16.3
+        "proteina_g": -15.6
       }
     },
     {
