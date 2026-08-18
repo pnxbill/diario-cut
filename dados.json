@@ -16,7 +16,7 @@
       "fibra_g": 30,
       "agua_ml": 3000
     },
-    "atualizado_em": "2026-08-18T10:43:25.231Z",
+    "atualizado_em": "2026-08-18T10:43:35.095Z",
     "dias_registrados": 8,
     "rapidos": [
       [
@@ -586,10 +586,14 @@
       {
         "data": "2026-08-17",
         "kg": 76.7
+      },
+      {
+        "data": "2026-08-18",
+        "kg": 76
       }
     ],
-    "media_movel_7d_kg": 75.96,
-    "variacao_desde_inicio_kg": -0.44
+    "media_movel_7d_kg": 75.97,
+    "variacao_desde_inicio_kg": -0.43
   },
   "dias": [
     {
@@ -1569,9 +1573,9 @@
     {
       "data": "2026-08-18",
       "tipo": "run",
-      "peso_kg": null,
+      "peso_kg": 76,
       "agua_ml": 500,
-      "atualizado_em": "2026-08-18T10:43:22.459Z",
+      "atualizado_em": "2026-08-18T10:43:31.837Z",
       "refeicoes": [],
       "total": {
         "kcal": 0,
