@@ -16,7 +16,7 @@
       "fibra_g": 30,
       "agua_ml": 3000
     },
-    "atualizado_em": "2026-08-18T22:35:19.752Z",
+    "atualizado_em": "2026-08-18T22:35:30.579Z",
     "dias_registrados": 10,
     "rapidos": [
       [
@@ -1357,7 +1357,7 @@
       "tipo": "run",
       "peso_kg": null,
       "agua_ml": 500,
-      "atualizado_em": "2026-08-15T12:20:27.090Z",
+      "atualizado_em": "2026-08-18T22:35:26.347Z",
       "refeicoes": [
         {
           "refeicao": "cafe",
@@ -1405,12 +1405,32 @@
             "proteina_g": 22,
             "fibra_g": 3.6
           }
+        },
+        {
+          "refeicao": "lanche",
+          "label": "Lanche",
+          "itens": [
+            {
+              "nome": "Beliscos do dia (broa de fubá, pão com mortadela) — estimativa",
+              "kcal": 1800,
+              "proteina_g": 55,
+              "fibra_g": 9,
+              "emoji": "🥖",
+              "id": "Beliscos do dia (broa de fubá, pão com mortadela) — estimativa",
+              "qtd": 1
+            }
+          ],
+          "subtotal": {
+            "kcal": 1800,
+            "proteina_g": 55,
+            "fibra_g": 9
+          }
         }
       ],
       "total": {
-        "kcal": 413,
-        "proteina_g": 22,
-        "fibra_g": 3.6
+        "kcal": 2213,
+        "proteina_g": 77,
+        "fibra_g": 12.6
       },
       "alvo": {
         "kcal": 2150,
@@ -1418,8 +1438,8 @@
         "fibra_g": 30
       },
       "diferenca": {
-        "kcal": -1737,
-        "proteina_g": -128
+        "kcal": 63,
+        "proteina_g": -73
       }
     },
     {
@@ -1427,12 +1447,53 @@
       "tipo": "run",
       "peso_kg": null,
       "agua_ml": 0,
-      "atualizado_em": "2026-08-17T12:50:02.406Z",
-      "refeicoes": [],
+      "atualizado_em": "2026-08-18T22:35:26.347Z",
+      "refeicoes": [
+        {
+          "refeicao": "almoco",
+          "label": "Almoço",
+          "itens": [
+            {
+              "nome": "Macarrão com carne moída (400 g)",
+              "kcal": 630,
+              "proteina_g": 33,
+              "fibra_g": 6,
+              "emoji": "🍝",
+              "id": "Macarrão com carne moída (400 g)",
+              "qtd": 1
+            }
+          ],
+          "subtotal": {
+            "kcal": 630,
+            "proteina_g": 33,
+            "fibra_g": 6
+          }
+        },
+        {
+          "refeicao": "lanche",
+          "label": "Lanche",
+          "itens": [
+            {
+              "nome": "Beliscos do dia (broa de fubá, pão com mortadela) — estimativa",
+              "kcal": 1600,
+              "proteina_g": 48,
+              "fibra_g": 8,
+              "emoji": "🥖",
+              "id": "Beliscos do dia (broa de fubá, pão com mortadela) — estimativa",
+              "qtd": 1
+            }
+          ],
+          "subtotal": {
+            "kcal": 1600,
+            "proteina_g": 48,
+            "fibra_g": 8
+          }
+        }
+      ],
       "total": {
-        "kcal": 0,
-        "proteina_g": 0,
-        "fibra_g": 0
+        "kcal": 2230,
+        "proteina_g": 81,
+        "fibra_g": 14
       },
       "alvo": {
         "kcal": 2150,
@@ -1440,8 +1501,8 @@
         "fibra_g": 30
       },
       "diferenca": {
-        "kcal": -2150,
-        "proteina_g": -150
+        "kcal": 80,
+        "proteina_g": -69
       }
     },
     {
