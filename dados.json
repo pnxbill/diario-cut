@@ -16,7 +16,7 @@
       "fibra_g": 30,
       "agua_ml": 3000
     },
-    "atualizado_em": "2026-08-18T22:13:24.001Z",
+    "atualizado_em": "2026-08-18T22:13:32.535Z",
     "dias_registrados": 10,
     "rapidos": [
       [
@@ -116,14 +116,6 @@
         7
       ],
       [
-        "Whey",
-        "1 scoop",
-        120,
-        24,
-        "🥛",
-        0
-      ],
-      [
         "Verde Campo",
         "1 copo 200 g",
         102,
@@ -154,6 +146,38 @@
         18,
         "🥛",
         1
+      ],
+      [
+        "Whey",
+        "30 g (1½ medidores)",
+        117,
+        20,
+        "🥛",
+        0
+      ],
+      [
+        "Leite desn. s/ lactose",
+        "200 ml",
+        69,
+        6,
+        "🥛",
+        0
+      ],
+      [
+        "Ameixa",
+        "1 un",
+        30,
+        0.5,
+        "🍑",
+        0.9
+      ],
+      [
+        "Pera",
+        "1 média",
+        101,
+        0.6,
+        "🍐",
+        5.5
       ]
     ],
     "biblioteca": [
@@ -217,27 +241,11 @@
             0
           ],
           [
-            "Whey",
-            "1 scoop",
-            120,
-            24,
-            "🥛",
-            0
-          ],
-          [
             "Nutren Protein",
             "1 garrafa 260 ml",
             114,
             15,
             "🧋",
-            0
-          ],
-          [
-            "Verde Campo Natural Whey",
-            "1 copo 200 g",
-            102,
-            12,
-            "🥤",
             0
           ],
           [
@@ -279,6 +287,22 @@
             18,
             "🥛",
             1
+          ],
+          [
+            "Whey",
+            "30 g (1½ medidores)",
+            117,
+            20,
+            "🥛",
+            0
+          ],
+          [
+            "Leite desnatado sem lactose",
+            "200 ml (1 copo)",
+            69,
+            6,
+            "🥛",
+            0
           ]
         ]
       ],
@@ -417,6 +441,22 @@
             1,
             "🍎",
             2
+          ],
+          [
+            "Ameixa",
+            "1 un",
+            30,
+            0.5,
+            "🍑",
+            0.9
+          ],
+          [
+            "Pera",
+            "1 média",
+            101,
+            0.6,
+            "🍐",
+            5.5
           ]
         ]
       ],
@@ -1124,7 +1164,7 @@
       "tipo": "run",
       "peso_kg": 75.5,
       "agua_ml": 2500,
-      "atualizado_em": "2026-08-18T12:47:59.726Z",
+      "atualizado_em": "2026-08-18T22:13:27.014Z",
       "refeicoes": [
         {
           "refeicao": "cafe",
@@ -1174,11 +1214,20 @@
               "emoji": "🥛",
               "id": "Whey Soldiers (1 dosador 30 g)",
               "qtd": 1
+            },
+            {
+              "nome": "Leite desnatado sem lactose (200 ml)",
+              "kcal": 69,
+              "proteina_g": 6,
+              "fibra_g": 0,
+              "emoji": "🥛",
+              "id": "Leite desnatado sem lactose (200 ml)",
+              "qtd": 1
             }
           ],
           "subtotal": {
-            "kcal": 478,
-            "proteina_g": 35,
+            "kcal": 547,
+            "proteina_g": 41,
             "fibra_g": 2.3
           }
         },
@@ -1289,8 +1338,8 @@
         }
       ],
       "total": {
-        "kcal": 2061,
-        "proteina_g": 170,
+        "kcal": 2130,
+        "proteina_g": 176,
         "fibra_g": 19.4
       },
       "alvo": {
@@ -1299,8 +1348,8 @@
         "fibra_g": 30
       },
       "diferenca": {
-        "kcal": -89,
-        "proteina_g": 20
+        "kcal": -20,
+        "proteina_g": 26
       }
     },
     {
@@ -1400,7 +1449,7 @@
       "tipo": "run",
       "peso_kg": 76.7,
       "agua_ml": 2000,
-      "atualizado_em": "2026-08-18T12:47:59.726Z",
+      "atualizado_em": "2026-08-18T22:13:27.014Z",
       "refeicoes": [
         {
           "refeicao": "cafe",
@@ -1450,11 +1499,20 @@
               "emoji": "🥛",
               "id": "Whey Soldiers (1 dosador 30 g)",
               "qtd": 1
+            },
+            {
+              "nome": "Leite desnatado sem lactose (200 ml)",
+              "kcal": 69,
+              "proteina_g": 6,
+              "fibra_g": 0,
+              "emoji": "🥛",
+              "id": "Leite desnatado sem lactose (200 ml)",
+              "qtd": 1
             }
           ],
           "subtotal": {
-            "kcal": 478,
-            "proteina_g": 39.4,
+            "kcal": 547,
+            "proteina_g": 45.4,
             "fibra_g": 6
           }
         },
@@ -1508,11 +1566,20 @@
               "emoji": "🥛",
               "id": "Whey Soldiers (1 dosador 30 g)",
               "qtd": 1
+            },
+            {
+              "nome": "Leite desnatado sem lactose (200 ml)",
+              "kcal": 69,
+              "proteina_g": 6,
+              "fibra_g": 0,
+              "emoji": "🥛",
+              "id": "Leite desnatado sem lactose (200 ml)",
+              "qtd": 1
             }
           ],
           "subtotal": {
-            "kcal": 322,
-            "proteina_g": 20.6,
+            "kcal": 391,
+            "proteina_g": 26.6,
             "fibra_g": 7.2
           }
         },
@@ -1556,8 +1623,8 @@
         }
       ],
       "total": {
-        "kcal": 1790,
-        "proteina_g": 135.2,
+        "kcal": 1928,
+        "proteina_g": 147.2,
         "fibra_g": 18.6
       },
       "alvo": {
@@ -1566,8 +1633,8 @@
         "fibra_g": 30
       },
       "diferenca": {
-        "kcal": -360,
-        "proteina_g": -14.8
+        "kcal": -222,
+        "proteina_g": -2.8
       }
     },
     {
@@ -1575,7 +1642,7 @@
       "tipo": "run",
       "peso_kg": 76,
       "agua_ml": 2000,
-      "atualizado_em": "2026-08-18T21:25:59.258Z",
+      "atualizado_em": "2026-08-18T22:13:27.015Z",
       "refeicoes": [
         {
           "refeicao": "cafe",
@@ -1625,11 +1692,20 @@
               "emoji": "🥄",
               "id": "Psyllium|1 scoop",
               "qtd": 1
+            },
+            {
+              "nome": "Leite desnatado sem lactose (200 ml)",
+              "kcal": 69,
+              "proteina_g": 6,
+              "fibra_g": 0,
+              "emoji": "🥛",
+              "id": "Leite desnatado sem lactose (200 ml)",
+              "qtd": 1
             }
           ],
           "subtotal": {
-            "kcal": 478,
-            "proteina_g": 39.4,
+            "kcal": 547,
+            "proteina_g": 45.4,
             "fibra_g": 6
           }
         },
@@ -1683,19 +1759,73 @@
               "emoji": "🥭",
               "id": "Mamão|150 g",
               "qtd": 1
+            },
+            {
+              "nome": "Ameixa (1 un)",
+              "kcal": 30,
+              "proteina_g": 0.5,
+              "fibra_g": 0.9,
+              "emoji": "🍑",
+              "id": "Ameixa (1 un)",
+              "qtd": 1
+            },
+            {
+              "nome": "2× Mexerica (1 média)",
+              "kcal": 106,
+              "proteina_g": 1.6,
+              "fibra_g": 3.6,
+              "emoji": "🍊",
+              "id": "2× Mexerica (1 média)",
+              "qtd": 2
+            },
+            {
+              "nome": "Leite desnatado sem lactose (300 ml)",
+              "kcal": 104,
+              "proteina_g": 9,
+              "fibra_g": 0,
+              "emoji": "🥛",
+              "id": "Leite desnatado sem lactose (300 ml)",
+              "qtd": 1
+            },
+            {
+              "nome": "Aveia (30 g)",
+              "kcal": 116,
+              "proteina_g": 4.8,
+              "fibra_g": 2.9,
+              "emoji": "🥣",
+              "id": "Aveia (30 g)",
+              "qtd": 1
+            },
+            {
+              "nome": "Whey Soldiers (1 dosador 30 g)",
+              "kcal": 112,
+              "proteina_g": 18,
+              "fibra_g": 1,
+              "emoji": "🥛",
+              "id": "Whey Soldiers (1 dosador 30 g)",
+              "qtd": 1
+            },
+            {
+              "nome": "Whey (30 g = 1½ medidores)",
+              "kcal": 117,
+              "proteina_g": 20,
+              "fibra_g": 0,
+              "emoji": "🥛",
+              "id": "Whey (30 g = 1½ medidores)",
+              "qtd": 1
             }
           ],
           "subtotal": {
-            "kcal": 65,
-            "proteina_g": 0.7,
-            "fibra_g": 2.6
+            "kcal": 650,
+            "proteina_g": 54.6,
+            "fibra_g": 11
           }
         }
       ],
       "total": {
-        "kcal": 1173,
-        "proteina_g": 73.8,
-        "fibra_g": 18.5
+        "kcal": 1827,
+        "proteina_g": 133.7,
+        "fibra_g": 26.9
       },
       "alvo": {
         "kcal": 2150,
@@ -1703,8 +1833,8 @@
         "fibra_g": 30
       },
       "diferenca": {
-        "kcal": -977,
-        "proteina_g": -76.2
+        "kcal": -323,
+        "proteina_g": -16.3
       }
     },
     {
