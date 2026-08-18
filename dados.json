@@ -16,7 +16,7 @@
       "fibra_g": 30,
       "agua_ml": 3000
     },
-    "atualizado_em": "2026-08-18T12:48:03.904Z",
+    "atualizado_em": "2026-08-18T12:48:11.597Z",
     "dias_registrados": 8,
     "rapidos": [
       [
@@ -1575,12 +1575,42 @@
       "tipo": "run",
       "peso_kg": 76,
       "agua_ml": 500,
-      "atualizado_em": "2026-08-18T10:43:31.837Z",
-      "refeicoes": [],
+      "atualizado_em": "2026-08-18T12:48:08.580Z",
+      "refeicoes": [
+        {
+          "refeicao": "cafe",
+          "label": "Café da manhã",
+          "itens": [
+            {
+              "nome": "3× Ovo (1 un)",
+              "kcal": 216,
+              "proteina_g": 18.9,
+              "fibra_g": 0,
+              "emoji": "🥚",
+              "id": "Ovo|1 un",
+              "qtd": 3
+            },
+            {
+              "nome": "Pão de forma (1 fatia)",
+              "kcal": 68,
+              "proteina_g": 2.3,
+              "fibra_g": 1,
+              "emoji": "🍞",
+              "id": "Pão de forma|1 fatia",
+              "qtd": 1
+            }
+          ],
+          "subtotal": {
+            "kcal": 284,
+            "proteina_g": 21.2,
+            "fibra_g": 1
+          }
+        }
+      ],
       "total": {
-        "kcal": 0,
-        "proteina_g": 0,
-        "fibra_g": 0
+        "kcal": 284,
+        "proteina_g": 21.2,
+        "fibra_g": 1
       },
       "alvo": {
         "kcal": 2150,
@@ -1588,8 +1618,8 @@
         "fibra_g": 30
       },
       "diferenca": {
-        "kcal": -2150,
-        "proteina_g": -150
+        "kcal": -1866,
+        "proteina_g": -128.8
       }
     }
   ]
