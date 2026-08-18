@@ -298,7 +298,7 @@ details.cfg summary{cursor:pointer;font-family:'Space Grotesk',sans-serif;font-s
 'use strict';
 
 /* ============================ constantes ============================ */
-const VERSAO='v5 · 17/08';
+const VERSAO='v6 · 18/08';
 const LS_DADOS='diario-cut-dados-v4', LS_CFG='diario-cut-cfg-v1';
 /* Carimbo de um dia que existe mas nunca foi tocado pelo usuário.
    Tem de perder QUALQUER merge — senão um aparelho novo, com armazenamento
@@ -1003,6 +1003,15 @@ function aplicarPatch(P){
     DB.meta.rapidos=M.rapidos.map(paraLinha);
     mudancas.push('atalhos substituídos ('+DB.meta.rapidos.length+')');
   }
+  /* REMOVER SEMPRE ANTES DE ADICIONAR: é assim que se CORRIGE um alimento
+     cadastrado errado — remove o antigo e adiciona a versão certa no mesmo
+     patch. Na ordem inversa o add seria ignorado (dedupe por nome) e o remove
+     apagaria os dois. */
+  if(Array.isArray(M.rapidos_remove)){
+    const L=listaRapidos(), antes=L.length;
+    DB.meta.rapidos=L.filter(x=>!M.rapidos_remove.some(nm=>String(x[0]).toLowerCase().includes(String(nm).toLowerCase())));
+    if(DB.meta.rapidos.length!==antes) mudancas.push('−'+(antes-DB.meta.rapidos.length)+' atalho(s)');
+  }
   if(Array.isArray(M.rapidos_add)){
     const L=listaRapidos(); let n=0;
     M.rapidos_add.forEach(o=>{
@@ -1012,10 +1021,18 @@ function aplicarPatch(P){
     });
     if(n) mudancas.push('+'+n+' atalho(s) rápido(s)');
   }
-  if(Array.isArray(M.rapidos_remove)){
-    const L=listaRapidos(), antes=L.length;
-    DB.meta.rapidos=L.filter(x=>!M.rapidos_remove.some(nm=>String(x[0]).toLowerCase().includes(String(nm).toLowerCase())));
-    if(DB.meta.rapidos.length!==antes) mudancas.push('−'+(antes-DB.meta.rapidos.length)+' atalho(s)');
+  if(Array.isArray(M.biblioteca)){
+    DB.meta.biblioteca=M.biblioteca;
+    mudancas.push('biblioteca substituída');
+  }
+  if(Array.isArray(M.biblioteca_remove)){
+    const B=listaBiblioteca(); let n=0;
+    B.forEach(par=>{
+      const antes=par[1].length;
+      par[1]=par[1].filter(x=>!M.biblioteca_remove.some(nm=>String(x[0]).toLowerCase().includes(String(nm).toLowerCase())));
+      n+=antes-par[1].length;
+    });
+    if(n) mudancas.push('−'+n+' da biblioteca');
   }
   if(Array.isArray(M.biblioteca_add)){
     const B=listaBiblioteca(); let n=0;
