@@ -16,7 +16,7 @@
       "fibra_g": 30,
       "agua_ml": 3000
     },
-    "atualizado_em": "2026-08-19T10:14:30.709Z",
+    "atualizado_em": "2026-08-19T10:15:17.669Z",
     "dias_registrados": 10,
     "rapidos": [
       [
@@ -1907,7 +1907,7 @@
       "tipo": "rest",
       "peso_kg": 76,
       "agua_ml": 1000,
-      "atualizado_em": "2026-08-19T10:14:27.873Z",
+      "atualizado_em": "2026-08-19T10:15:14.776Z",
       "refeicoes": [
         {
           "refeicao": "cafe",
@@ -1948,19 +1948,28 @@
               "emoji": "🍞",
               "id": "Pão de forma integral|1 fatia",
               "qtd": 2
+            },
+            {
+              "nome": "2× Psyllium (1 scoop)",
+              "kcal": 36,
+              "proteina_g": 0.2,
+              "fibra_g": 8,
+              "emoji": "🥄",
+              "id": "Psyllium|1 scoop",
+              "qtd": 2
             }
           ],
           "subtotal": {
-            "kcal": 379,
-            "proteina_g": 31.2,
-            "fibra_g": 8.5
+            "kcal": 415,
+            "proteina_g": 31.4,
+            "fibra_g": 16.5
           }
         }
       ],
       "total": {
-        "kcal": 379,
-        "proteina_g": 31.2,
-        "fibra_g": 8.5
+        "kcal": 415,
+        "proteina_g": 31.4,
+        "fibra_g": 16.5
       },
       "alvo": {
         "kcal": 1900,
@@ -1968,8 +1977,8 @@
         "fibra_g": 30
       },
       "diferenca": {
-        "kcal": -1521,
-        "proteina_g": -118.8
+        "kcal": -1485,
+        "proteina_g": -118.6
       }
     },
     {
