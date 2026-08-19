@@ -16,7 +16,7 @@
       "fibra_g": 30,
       "agua_ml": 3000
     },
-    "atualizado_em": "2026-08-19T18:59:01.968Z",
+    "atualizado_em": "2026-08-19T18:59:10.992Z",
     "dias_registrados": 10,
     "rapidos": [
       [
@@ -1907,7 +1907,7 @@
       "tipo": "rest",
       "peso_kg": 76,
       "agua_ml": 1500,
-      "atualizado_em": "2026-08-19T18:58:59.159Z",
+      "atualizado_em": "2026-08-19T18:59:08.096Z",
       "refeicoes": [
         {
           "refeicao": "cafe",
@@ -2042,18 +2042,27 @@
               "emoji": "🍊",
               "id": "Mexerica|1 média",
               "qtd": 1
+            },
+            {
+              "nome": "Whey (30 g (1½ medidores))",
+              "kcal": 117,
+              "proteina_g": 20,
+              "fibra_g": 0,
+              "emoji": "🥛",
+              "id": "Whey|30 g (1½ medidores)",
+              "qtd": 1
             }
           ],
           "subtotal": {
-            "kcal": 53,
-            "proteina_g": 0.8,
+            "kcal": 170,
+            "proteina_g": 20.8,
             "fibra_g": 1.8
           }
         }
       ],
       "total": {
-        "kcal": 1354,
-        "proteina_g": 85,
+        "kcal": 1471,
+        "proteina_g": 105,
         "fibra_g": 33
       },
       "alvo": {
@@ -2062,8 +2071,8 @@
         "fibra_g": 30
       },
       "diferenca": {
-        "kcal": -546,
-        "proteina_g": -65
+        "kcal": -429,
+        "proteina_g": -45
       }
     },
     {
