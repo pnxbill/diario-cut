@@ -16,7 +16,7 @@
       "fibra_g": 30,
       "agua_ml": 3000
     },
-    "atualizado_em": "2026-08-19T21:55:44.035Z",
+    "atualizado_em": "2026-08-19T21:55:56.932Z",
     "dias_registrados": 10,
     "rapidos": [
       [
@@ -1907,7 +1907,7 @@
       "tipo": "rest",
       "peso_kg": 76,
       "agua_ml": 2000,
-      "atualizado_em": "2026-08-19T20:44:16.993Z",
+      "atualizado_em": "2026-08-19T21:55:54.014Z",
       "refeicoes": [
         {
           "refeicao": "cafe",
@@ -2085,12 +2085,32 @@
             "proteina_g": 45.4,
             "fibra_g": 8.3
           }
+        },
+        {
+          "refeicao": "jantar",
+          "label": "Jantar",
+          "itens": [
+            {
+              "nome": "Ameixa (1 un)",
+              "kcal": 30,
+              "proteina_g": 0.5,
+              "fibra_g": 0.9,
+              "emoji": "🍑",
+              "id": "Ameixa|1 un",
+              "qtd": 1
+            }
+          ],
+          "subtotal": {
+            "kcal": 30,
+            "proteina_g": 0.5,
+            "fibra_g": 0.9
+          }
         }
       ],
       "total": {
-        "kcal": 1753,
-        "proteina_g": 129.6,
-        "fibra_g": 39.5
+        "kcal": 1783,
+        "proteina_g": 130.1,
+        "fibra_g": 40.4
       },
       "alvo": {
         "kcal": 1900,
@@ -2098,8 +2118,8 @@
         "fibra_g": 30
       },
       "diferenca": {
-        "kcal": -147,
-        "proteina_g": -20.4
+        "kcal": -117,
+        "proteina_g": -19.9
       }
     },
     {
