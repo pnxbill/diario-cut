@@ -16,7 +16,7 @@
       "fibra_g": 30,
       "agua_ml": 3000
     },
-    "atualizado_em": "2026-08-19T16:36:13.103Z",
+    "atualizado_em": "2026-08-19T16:36:26.169Z",
     "dias_registrados": 10,
     "rapidos": [
       [
@@ -1907,7 +1907,7 @@
       "tipo": "rest",
       "peso_kg": 76,
       "agua_ml": 1000,
-      "atualizado_em": "2026-08-19T15:27:45.347Z",
+      "atualizado_em": "2026-08-19T16:36:23.362Z",
       "refeicoes": [
         {
           "refeicao": "cafe",
@@ -2013,19 +2013,28 @@
               "emoji": "🍲",
               "id": "Sopa de inhame (~200 g)",
               "qtd": 1
+            },
+            {
+              "nome": "Mexerica (1 média)",
+              "kcal": 53,
+              "proteina_g": 0.8,
+              "fibra_g": 1.8,
+              "emoji": "🍊",
+              "id": "Mexerica|1 média",
+              "qtd": 1
             }
           ],
           "subtotal": {
-            "kcal": 750,
-            "proteina_g": 50.7,
-            "fibra_g": 10.2
+            "kcal": 803,
+            "proteina_g": 51.5,
+            "fibra_g": 12
           }
         }
       ],
       "total": {
-        "kcal": 1248,
-        "proteina_g": 83.4,
-        "fibra_g": 29.4
+        "kcal": 1301,
+        "proteina_g": 84.2,
+        "fibra_g": 31.2
       },
       "alvo": {
         "kcal": 1900,
@@ -2033,8 +2042,8 @@
         "fibra_g": 30
       },
       "diferenca": {
-        "kcal": -652,
-        "proteina_g": -66.6
+        "kcal": -599,
+        "proteina_g": -65.8
       }
     },
     {
