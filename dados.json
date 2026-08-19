@@ -16,7 +16,7 @@
       "fibra_g": 30,
       "agua_ml": 3000
     },
-    "atualizado_em": "2026-08-19T18:59:15.067Z",
+    "atualizado_em": "2026-08-19T18:59:20.575Z",
     "dias_registrados": 10,
     "rapidos": [
       [
@@ -1907,7 +1907,7 @@
       "tipo": "rest",
       "peso_kg": 76,
       "agua_ml": 1500,
-      "atualizado_em": "2026-08-19T18:59:12.169Z",
+      "atualizado_em": "2026-08-19T18:59:17.684Z",
       "refeicoes": [
         {
           "refeicao": "cafe",
@@ -2060,18 +2060,27 @@
               "emoji": "🥛",
               "id": "Whey Soldiers|1 dosador 30 g",
               "qtd": 1
+            },
+            {
+              "nome": "Leite desn. s/ lactose (200 ml)",
+              "kcal": 69,
+              "proteina_g": 6,
+              "fibra_g": 0,
+              "emoji": "🥛",
+              "id": "Leite desn. s/ lactose|200 ml",
+              "qtd": 1
             }
           ],
           "subtotal": {
-            "kcal": 282,
-            "proteina_g": 38.8,
+            "kcal": 351,
+            "proteina_g": 44.8,
             "fibra_g": 2.8
           }
         }
       ],
       "total": {
-        "kcal": 1583,
-        "proteina_g": 123,
+        "kcal": 1652,
+        "proteina_g": 129,
         "fibra_g": 34
       },
       "alvo": {
@@ -2080,8 +2089,8 @@
         "fibra_g": 30
       },
       "diferenca": {
-        "kcal": -317,
-        "proteina_g": -27
+        "kcal": -248,
+        "proteina_g": -21
       }
     },
     {
