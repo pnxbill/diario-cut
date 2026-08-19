@@ -16,7 +16,7 @@
       "fibra_g": 30,
       "agua_ml": 3000
     },
-    "atualizado_em": "2026-08-19T10:14:23.553Z",
+    "atualizado_em": "2026-08-19T10:14:30.709Z",
     "dias_registrados": 10,
     "rapidos": [
       [
@@ -629,6 +629,10 @@
       },
       {
         "data": "2026-08-18",
+        "kg": 76
+      },
+      {
+        "data": "2026-08-19",
         "kg": 76
       }
     ],
@@ -1901,9 +1905,9 @@
     {
       "data": "2026-08-19",
       "tipo": "rest",
-      "peso_kg": null,
+      "peso_kg": 76,
       "agua_ml": 1000,
-      "atualizado_em": "2026-08-19T10:14:20.529Z",
+      "atualizado_em": "2026-08-19T10:14:27.873Z",
       "refeicoes": [
         {
           "refeicao": "cafe",
