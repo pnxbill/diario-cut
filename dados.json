@@ -16,7 +16,7 @@
       "fibra_g": 30,
       "agua_ml": 3000
     },
-    "atualizado_em": "2026-08-19T18:59:10.992Z",
+    "atualizado_em": "2026-08-19T18:59:15.067Z",
     "dias_registrados": 10,
     "rapidos": [
       [
@@ -1907,7 +1907,7 @@
       "tipo": "rest",
       "peso_kg": 76,
       "agua_ml": 1500,
-      "atualizado_em": "2026-08-19T18:59:08.096Z",
+      "atualizado_em": "2026-08-19T18:59:12.169Z",
       "refeicoes": [
         {
           "refeicao": "cafe",
@@ -2051,19 +2051,28 @@
               "emoji": "🥛",
               "id": "Whey|30 g (1½ medidores)",
               "qtd": 1
+            },
+            {
+              "nome": "Whey Soldiers (1 dosador 30 g)",
+              "kcal": 112,
+              "proteina_g": 18,
+              "fibra_g": 1,
+              "emoji": "🥛",
+              "id": "Whey Soldiers|1 dosador 30 g",
+              "qtd": 1
             }
           ],
           "subtotal": {
-            "kcal": 170,
-            "proteina_g": 20.8,
-            "fibra_g": 1.8
+            "kcal": 282,
+            "proteina_g": 38.8,
+            "fibra_g": 2.8
           }
         }
       ],
       "total": {
-        "kcal": 1471,
-        "proteina_g": 105,
-        "fibra_g": 33
+        "kcal": 1583,
+        "proteina_g": 123,
+        "fibra_g": 34
       },
       "alvo": {
         "kcal": 1900,
@@ -2071,8 +2080,8 @@
         "fibra_g": 30
       },
       "diferenca": {
-        "kcal": -429,
-        "proteina_g": -45
+        "kcal": -317,
+        "proteina_g": -27
       }
     },
     {
