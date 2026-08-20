@@ -16,7 +16,7 @@
       "fibra_g": 30,
       "agua_ml": 3000
     },
-    "atualizado_em": "2026-08-20T22:54:28.953Z",
+    "atualizado_em": "2026-08-20T22:54:36.560Z",
     "dias_registrados": 10,
     "rapidos": [
       [
@@ -178,6 +178,22 @@
         3,
         "🍞",
         2.2
+      ],
+      [
+        "Atum (lata)",
+        "1 lata 120 g",
+        185,
+        29,
+        "🐟",
+        0
+      ],
+      [
+        "Gatorade",
+        "500 ml",
+        125,
+        0,
+        "🥤",
+        0
       ]
     ],
     "biblioteca": [
@@ -302,6 +318,14 @@
             69,
             6,
             "🥛",
+            0
+          ],
+          [
+            "Atum em óleo (lata inteira)",
+            "1 lata 120 g",
+            185,
+            29,
+            "🐟",
             0
           ]
         ]
@@ -597,6 +621,14 @@
             "Refrigerante",
             "350 ml",
             140,
+            0,
+            "🥤",
+            0
+          ],
+          [
+            "Gatorade",
+            "500 ml",
+            125,
             0,
             "🥤",
             0
@@ -2149,7 +2181,7 @@
       "tipo": "run",
       "peso_kg": 76,
       "agua_ml": 2250,
-      "atualizado_em": "2026-08-20T21:16:05.805Z",
+      "atualizado_em": "2026-08-20T22:54:32.554Z",
       "refeicoes": [
         {
           "refeicao": "cafe",
@@ -2320,19 +2352,57 @@
               "emoji": "🍊",
               "id": "Mexerica|1 média",
               "qtd": 1
+            },
+            {
+              "nome": "Gatorade (500 ml)",
+              "kcal": 125,
+              "proteina_g": 0,
+              "fibra_g": 0,
+              "emoji": "🥤",
+              "id": "Gatorade (500 ml)",
+              "qtd": 1
             }
           ],
           "subtotal": {
-            "kcal": 467,
+            "kcal": 592,
             "proteina_g": 49.6,
             "fibra_g": 5.7
+          }
+        },
+        {
+          "refeicao": "jantar",
+          "label": "Jantar",
+          "itens": [
+            {
+              "nome": "Atum (1 lata 120 g)",
+              "kcal": 185,
+              "proteina_g": 29,
+              "fibra_g": 0,
+              "emoji": "🐟",
+              "id": "Atum (1 lata 120 g)",
+              "qtd": 1
+            },
+            {
+              "nome": "2× Pão de forma integral (1 fatia)",
+              "kcal": 136,
+              "proteina_g": 6,
+              "fibra_g": 4.4,
+              "emoji": "🍞",
+              "id": "2× Pão de forma integral (1 fatia)",
+              "qtd": 2
+            }
+          ],
+          "subtotal": {
+            "kcal": 321,
+            "proteina_g": 35,
+            "fibra_g": 4.4
           }
         }
       ],
       "total": {
-        "kcal": 1586,
-        "proteina_g": 132.3,
-        "fibra_g": 21.7
+        "kcal": 2032,
+        "proteina_g": 167.3,
+        "fibra_g": 26.1
       },
       "alvo": {
         "kcal": 2150,
@@ -2340,8 +2410,8 @@
         "fibra_g": 30
       },
       "diferenca": {
-        "kcal": -564,
-        "proteina_g": -17.7
+        "kcal": -118,
+        "proteina_g": 17.3
       }
     }
   ]
