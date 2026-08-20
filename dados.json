@@ -16,7 +16,7 @@
       "fibra_g": 30,
       "agua_ml": 3000
     },
-    "atualizado_em": "2026-08-20T18:05:06.817Z",
+    "atualizado_em": "2026-08-20T18:05:24.749Z",
     "dias_registrados": 10,
     "rapidos": [
       [
@@ -2149,7 +2149,7 @@
       "tipo": "run",
       "peso_kg": 76,
       "agua_ml": 1250,
-      "atualizado_em": "2026-08-20T17:15:33.163Z",
+      "atualizado_em": "2026-08-20T18:05:21.856Z",
       "refeicoes": [
         {
           "refeicao": "cafe",
@@ -2271,12 +2271,32 @@
             "proteina_g": 52.9,
             "fibra_g": 10.7
           }
+        },
+        {
+          "refeicao": "lanche",
+          "label": "Lanche",
+          "itens": [
+            {
+              "nome": "Aveia (30 g (3 colheres))",
+              "kcal": 116,
+              "proteina_g": 4.8,
+              "fibra_g": 2.9,
+              "emoji": "🥣",
+              "id": "Aveia|30 g (3 colheres)",
+              "qtd": 1
+            }
+          ],
+          "subtotal": {
+            "kcal": 116,
+            "proteina_g": 4.8,
+            "fibra_g": 2.9
+          }
         }
       ],
       "total": {
-        "kcal": 1119,
-        "proteina_g": 82.7,
-        "fibra_g": 16
+        "kcal": 1235,
+        "proteina_g": 87.5,
+        "fibra_g": 18.9
       },
       "alvo": {
         "kcal": 2150,
@@ -2284,8 +2304,8 @@
         "fibra_g": 30
       },
       "diferenca": {
-        "kcal": -1031,
-        "proteina_g": -67.3
+        "kcal": -915,
+        "proteina_g": -62.5
       }
     }
   ]
