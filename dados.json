@@ -16,7 +16,7 @@
       "fibra_g": 30,
       "agua_ml": 3000
     },
-    "atualizado_em": "2026-08-20T11:15:33.974Z",
+    "atualizado_em": "2026-08-20T11:15:39.610Z",
     "dias_registrados": 10,
     "rapidos": [
       [
@@ -2145,7 +2145,7 @@
       "tipo": "run",
       "peso_kg": null,
       "agua_ml": 750,
-      "atualizado_em": "2026-08-20T11:15:29.095Z",
+      "atualizado_em": "2026-08-20T11:15:36.807Z",
       "refeicoes": [
         {
           "refeicao": "cafe",
@@ -2159,19 +2159,28 @@
               "emoji": "🍞",
               "id": "Pão de forma integral|1 fatia",
               "qtd": 1
+            },
+            {
+              "nome": "Mexerica (1 média)",
+              "kcal": 53,
+              "proteina_g": 0.8,
+              "fibra_g": 1.8,
+              "emoji": "🍊",
+              "id": "Mexerica|1 média",
+              "qtd": 1
             }
           ],
           "subtotal": {
-            "kcal": 68,
-            "proteina_g": 3,
-            "fibra_g": 2.2
+            "kcal": 121,
+            "proteina_g": 3.8,
+            "fibra_g": 4
           }
         }
       ],
       "total": {
-        "kcal": 68,
-        "proteina_g": 3,
-        "fibra_g": 2.2
+        "kcal": 121,
+        "proteina_g": 3.8,
+        "fibra_g": 4
       },
       "alvo": {
         "kcal": 2150,
@@ -2179,8 +2188,8 @@
         "fibra_g": 30
       },
       "diferenca": {
-        "kcal": -2082,
-        "proteina_g": -147
+        "kcal": -2029,
+        "proteina_g": -146.2
       }
     }
   ]
