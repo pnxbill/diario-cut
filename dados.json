@@ -16,7 +16,7 @@
       "fibra_g": 30,
       "agua_ml": 3000
     },
-    "atualizado_em": "2026-08-20T18:05:24.749Z",
+    "atualizado_em": "2026-08-20T18:05:31.213Z",
     "dias_registrados": 10,
     "rapidos": [
       [
@@ -2149,7 +2149,7 @@
       "tipo": "run",
       "peso_kg": 76,
       "agua_ml": 1250,
-      "atualizado_em": "2026-08-20T18:05:21.856Z",
+      "atualizado_em": "2026-08-20T18:05:28.150Z",
       "refeicoes": [
         {
           "refeicao": "cafe",
@@ -2284,19 +2284,46 @@
               "emoji": "🥣",
               "id": "Aveia|30 g (3 colheres)",
               "qtd": 1
+            },
+            {
+              "nome": "Whey Soldiers (1 dosador 30 g)",
+              "kcal": 112,
+              "proteina_g": 18,
+              "fibra_g": 1,
+              "emoji": "🥛",
+              "id": "Whey Soldiers|1 dosador 30 g",
+              "qtd": 1
+            },
+            {
+              "nome": "Whey (30 g (1½ medidores))",
+              "kcal": 117,
+              "proteina_g": 20,
+              "fibra_g": 0,
+              "emoji": "🥛",
+              "id": "Whey|30 g (1½ medidores)",
+              "qtd": 1
+            },
+            {
+              "nome": "Leite desn. s/ lactose (200 ml)",
+              "kcal": 69,
+              "proteina_g": 6,
+              "fibra_g": 0,
+              "emoji": "🥛",
+              "id": "Leite desn. s/ lactose|200 ml",
+              "qtd": 1
             }
           ],
           "subtotal": {
-            "kcal": 116,
-            "proteina_g": 4.8,
-            "fibra_g": 2.9
+            "kcal": 414,
+            "proteina_g": 48.8,
+            "fibra_g": 3.9
           }
         }
       ],
       "total": {
-        "kcal": 1235,
-        "proteina_g": 87.5,
-        "fibra_g": 18.9
+        "kcal": 1533,
+        "proteina_g": 131.5,
+        "fibra_g": 19.9
       },
       "alvo": {
         "kcal": 2150,
@@ -2304,8 +2331,8 @@
         "fibra_g": 30
       },
       "diferenca": {
-        "kcal": -915,
-        "proteina_g": -62.5
+        "kcal": -617,
+        "proteina_g": -18.5
       }
     }
   ]
