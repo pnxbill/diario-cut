@@ -16,7 +16,7 @@
       "fibra_g": 30,
       "agua_ml": 3000
     },
-    "atualizado_em": "2026-08-20T11:10:12.564Z",
+    "atualizado_em": "2026-08-20T11:10:21.059Z",
     "dias_registrados": 10,
     "rapidos": [
       [
@@ -2145,12 +2145,33 @@
       "tipo": "run",
       "peso_kg": null,
       "agua_ml": 750,
-      "atualizado_em": "2026-08-20T11:10:09.646Z",
-      "refeicoes": [],
+      "atualizado_em": "2026-08-20T11:10:18.167Z",
+      "refeicoes": [
+        {
+          "refeicao": "almoco",
+          "label": "Almoço",
+          "itens": [
+            {
+              "nome": "Pão de forma integral (1 fatia)",
+              "kcal": 68,
+              "proteina_g": 3,
+              "fibra_g": 2.2,
+              "emoji": "🍞",
+              "id": "Pão de forma integral|1 fatia",
+              "qtd": 1
+            }
+          ],
+          "subtotal": {
+            "kcal": 68,
+            "proteina_g": 3,
+            "fibra_g": 2.2
+          }
+        }
+      ],
       "total": {
-        "kcal": 0,
-        "proteina_g": 0,
-        "fibra_g": 0
+        "kcal": 68,
+        "proteina_g": 3,
+        "fibra_g": 2.2
       },
       "alvo": {
         "kcal": 2150,
@@ -2158,8 +2179,8 @@
         "fibra_g": 30
       },
       "diferenca": {
-        "kcal": -2150,
-        "proteina_g": -150
+        "kcal": -2082,
+        "proteina_g": -147
       }
     }
   ]
