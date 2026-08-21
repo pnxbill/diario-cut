@@ -16,7 +16,7 @@
       "fibra_g": 30,
       "agua_ml": 3000
     },
-    "atualizado_em": "2026-08-21T22:03:54.807Z",
+    "atualizado_em": "2026-08-21T22:04:02.440Z",
     "dias_registrados": 11,
     "rapidos": [
       [
@@ -194,6 +194,14 @@
         0,
         "🥤",
         0
+      ],
+      [
+        "Itambé Protein",
+        "250 ml",
+        135,
+        15,
+        "🥤",
+        0.6
       ]
     ],
     "biblioteca": [
@@ -327,6 +335,14 @@
             29,
             "🐟",
             0
+          ],
+          [
+            "Itambé Protein chocolate (zero lactose)",
+            "250 ml",
+            135,
+            15,
+            "🥤",
+            0.6
           ]
         ]
       ],
@@ -631,6 +647,14 @@
             125,
             0,
             "🥤",
+            0
+          ],
+          [
+            "Mortadela",
+            "1 fatia ~15 g",
+            45,
+            2.4,
+            "🥓",
             0
           ]
         ]
@@ -2423,7 +2447,7 @@
       "tipo": "run",
       "peso_kg": 75.5,
       "agua_ml": 1500,
-      "atualizado_em": "2026-08-21T22:03:43.825Z",
+      "atualizado_em": "2026-08-21T22:03:57.925Z",
       "refeicoes": [
         {
           "refeicao": "cafe",
@@ -2576,19 +2600,46 @@
               "emoji": "🍊",
               "id": "Mexerica|1 média",
               "qtd": 1
+            },
+            {
+              "nome": "Itambé Protein (250 ml)",
+              "kcal": 135,
+              "proteina_g": 15,
+              "fibra_g": 0.6,
+              "emoji": "🥤",
+              "id": "Itambé Protein (250 ml)",
+              "qtd": 1
+            },
+            {
+              "nome": "Pão francês (1 un)",
+              "kcal": 135,
+              "proteina_g": 4,
+              "fibra_g": 1.2,
+              "emoji": "🥖",
+              "id": "Pão francês (1 un)",
+              "qtd": 1
+            },
+            {
+              "nome": "2× Mortadela (1 fatia)",
+              "kcal": 90,
+              "proteina_g": 4.8,
+              "fibra_g": 0,
+              "emoji": "🥓",
+              "id": "2× Mortadela (1 fatia)",
+              "qtd": 2
             }
           ],
           "subtotal": {
-            "kcal": 184,
-            "proteina_g": 1.9,
-            "fibra_g": 8.2
+            "kcal": 544,
+            "proteina_g": 25.7,
+            "fibra_g": 10
           }
         }
       ],
       "total": {
-        "kcal": 1402,
-        "proteina_g": 57.1,
-        "fibra_g": 26
+        "kcal": 1762,
+        "proteina_g": 80.9,
+        "fibra_g": 27.8
       },
       "alvo": {
         "kcal": 2150,
@@ -2596,8 +2647,8 @@
         "fibra_g": 30
       },
       "diferenca": {
-        "kcal": -748,
-        "proteina_g": -92.9
+        "kcal": -388,
+        "proteina_g": -69.1
       }
     }
   ]
