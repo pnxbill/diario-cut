@@ -16,7 +16,7 @@
       "fibra_g": 30,
       "agua_ml": 3000
     },
-    "atualizado_em": "2026-08-21T22:03:31.424Z",
+    "atualizado_em": "2026-08-21T22:03:46.736Z",
     "dias_registrados": 11,
     "rapidos": [
       [
@@ -2423,7 +2423,7 @@
       "tipo": "run",
       "peso_kg": 75.5,
       "agua_ml": 1500,
-      "atualizado_em": "2026-08-21T22:03:28.591Z",
+      "atualizado_em": "2026-08-21T22:03:43.825Z",
       "refeicoes": [
         {
           "refeicao": "cafe",
@@ -2567,19 +2567,28 @@
               "emoji": "🍐",
               "id": "Pera|1 média",
               "qtd": 1
+            },
+            {
+              "nome": "Mexerica (1 média)",
+              "kcal": 53,
+              "proteina_g": 0.8,
+              "fibra_g": 1.8,
+              "emoji": "🍊",
+              "id": "Mexerica|1 média",
+              "qtd": 1
             }
           ],
           "subtotal": {
-            "kcal": 131,
-            "proteina_g": 1.1,
-            "fibra_g": 6.4
+            "kcal": 184,
+            "proteina_g": 1.9,
+            "fibra_g": 8.2
           }
         }
       ],
       "total": {
-        "kcal": 1349,
-        "proteina_g": 56.3,
-        "fibra_g": 24.2
+        "kcal": 1402,
+        "proteina_g": 57.1,
+        "fibra_g": 26
       },
       "alvo": {
         "kcal": 2150,
@@ -2587,8 +2596,8 @@
         "fibra_g": 30
       },
       "diferenca": {
-        "kcal": -801,
-        "proteina_g": -93.7
+        "kcal": -748,
+        "proteina_g": -92.9
       }
     }
   ]
