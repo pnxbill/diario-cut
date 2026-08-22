@@ -16,7 +16,7 @@
       "fibra_g": 30,
       "agua_ml": 3000
     },
-    "atualizado_em": "2026-08-22T10:58:13.659Z",
+    "atualizado_em": "2026-08-22T10:58:29.580Z",
     "dias_registrados": 12,
     "rapidos": [
       [
@@ -2685,12 +2685,33 @@
       "tipo": "run",
       "peso_kg": null,
       "agua_ml": 500,
-      "atualizado_em": "2026-08-22T10:58:10.713Z",
-      "refeicoes": [],
+      "atualizado_em": "2026-08-22T10:58:26.299Z",
+      "refeicoes": [
+        {
+          "refeicao": "cafe",
+          "label": "Café da manhã",
+          "itens": [
+            {
+              "nome": "Pão de queijo (1 un)",
+              "kcal": 90,
+              "proteina_g": 2,
+              "fibra_g": 0.3,
+              "emoji": "🧀",
+              "id": "Pão de queijo|1 un",
+              "qtd": 1
+            }
+          ],
+          "subtotal": {
+            "kcal": 90,
+            "proteina_g": 2,
+            "fibra_g": 0.3
+          }
+        }
+      ],
       "total": {
-        "kcal": 0,
-        "proteina_g": 0,
-        "fibra_g": 0
+        "kcal": 90,
+        "proteina_g": 2,
+        "fibra_g": 0.3
       },
       "alvo": {
         "kcal": 2150,
@@ -2698,8 +2719,8 @@
         "fibra_g": 30
       },
       "diferenca": {
-        "kcal": -2150,
-        "proteina_g": -150
+        "kcal": -2060,
+        "proteina_g": -148
       }
     }
   ]
