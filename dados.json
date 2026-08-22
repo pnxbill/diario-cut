@@ -16,7 +16,7 @@
       "fibra_g": 30,
       "agua_ml": 3000
     },
-    "atualizado_em": "2026-08-22T12:57:55.796Z",
+    "atualizado_em": "2026-08-22T12:58:00.295Z",
     "dias_registrados": 12,
     "rapidos": [
       [
@@ -2684,8 +2684,8 @@
       "data": "2026-08-22",
       "tipo": "run",
       "peso_kg": null,
-      "agua_ml": 500,
-      "atualizado_em": "2026-08-22T11:56:50.136Z",
+      "agua_ml": 750,
+      "atualizado_em": "2026-08-22T12:57:57.405Z",
       "refeicoes": [
         {
           "refeicao": "cafe",
