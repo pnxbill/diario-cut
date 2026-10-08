@@ -16,7 +16,7 @@
       "fibra_g": 30,
       "agua_ml": 3000
     },
-    "atualizado_em": "2026-10-08T11:17:17.974Z",
+    "atualizado_em": "2026-10-08T11:17:25.707Z",
     "dias_registrados": 13,
     "rapidos": [
       [
@@ -2811,33 +2811,33 @@
       "tipo": "run",
       "peso_kg": null,
       "agua_ml": 0,
-      "atualizado_em": "2026-10-08T11:17:15.017Z",
+      "atualizado_em": "2026-10-08T11:17:22.779Z",
       "refeicoes": [
         {
           "refeicao": "cafe",
           "label": "Café da manhã",
           "itens": [
             {
-              "nome": "Aveia (30 g (3 colheres))",
-              "kcal": 116,
-              "proteina_g": 4.8,
-              "fibra_g": 2.9,
-              "emoji": "🥣",
-              "id": "Aveia|30 g (3 colheres)",
-              "qtd": 1
+              "nome": "2× Ovo (1 un)",
+              "kcal": 144,
+              "proteina_g": 12.6,
+              "fibra_g": 0,
+              "emoji": "🥚",
+              "id": "Ovo|1 un",
+              "qtd": 2
             }
           ],
           "subtotal": {
-            "kcal": 116,
-            "proteina_g": 4.8,
-            "fibra_g": 2.9
+            "kcal": 144,
+            "proteina_g": 12.6,
+            "fibra_g": 0
           }
         }
       ],
       "total": {
-        "kcal": 116,
-        "proteina_g": 4.8,
-        "fibra_g": 2.9
+        "kcal": 144,
+        "proteina_g": 12.6,
+        "fibra_g": 0
       },
       "alvo": {
         "kcal": 2150,
@@ -2845,8 +2845,8 @@
         "fibra_g": 30
       },
       "diferenca": {
-        "kcal": -2034,
-        "proteina_g": -145.2
+        "kcal": -2006,
+        "proteina_g": -137.4
       }
     }
   ]
